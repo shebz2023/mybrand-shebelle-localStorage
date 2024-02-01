@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url(assets/home\ image.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #160920;
+    height: 60px;
+    color: white;
+}
+
+nav a {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav a:hover{
+    background-color: #ddd;
+    color: black;
+    border-radius: 5px;
+    transform: scale(1.2);
+}
+.wordsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20%;
+    font-size: xx-large;
+
+}
+.word1{
+    
+}
