@@ -1,11 +1,10 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url(assets/home\ image.png);
+    background-image: url(assets/wallpaperflare.com_wallpaper\ \(2\).jpg);
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
-    
 }
 
 nav {
@@ -31,14 +30,25 @@ nav a:hover{
     transform: scale(1.2);
 }
 .wordsContainer{
+    width:70%;
+    margin-left: auto;
+     margin-right: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 20%;
+    padding-top: 10%;
     font-size: xx-large;
-
 }
 .word1{
-    
+    font-family: serif;
+    padding-bottom: 5%;
+}
+.word2{
+    font-family: serif;
+    padding-bottom:5%;
+    font-size: 80%;
+}
+.word3{
+    color:rgb(108, 83, 83);
 }
