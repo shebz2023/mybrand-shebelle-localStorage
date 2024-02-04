@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #16093B;
+            color: #fff;
+            margin: 0;
+        }
+
+        .header {
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #160920;
+            height: 60px;
+            color: white;
+            top: 0;
+            width: 100%;
+            padding: 0 20px;
+            z-index: 1000; 
+        }
+
+        .header p {
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 20px;
+            color: #0066CC;
+        }
+
+        nav {
+            width: 50%;
+            justify-content: space-around;
+            display: flex;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin-right: 10px;
+            font-family: 'YourCoolFont', sans-serif;
+        }
+
+        nav a:hover {
+            background-color: #0066CC;
+            color: #F9F6F6;
+            border-radius: 5px;
+        }
+
+        .blog-container {
+            width: 80%;
+            margin: 80px auto;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #0066CC;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .blog-header {
+            margin-bottom: 20px;
+        }
+
+        .blog-posts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .blog-posts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .blog-post {
+            width: calc(33.33% - 20px); 
+            margin-bottom: 20px; 
+            overflow: hidden;
+            background-color: #160920;
+            color: #fff;
+            border-radius: 8px;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .blog-title {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .blog-content {
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .read-more-link {
+            color: #0066CC;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .read-more-link:hover {
+            text-decoration: underline;
+        }
+
+        .all-rights-reserved {
+            margin-top: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* Media Query for Small Devices */
+        @media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+    }
+
+    nav {
+        width: 100%;
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #160920;
+        border-radius: 0 0 8px 8px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    nav a {
+        margin: 0;
+    }
+
+    .header p {
+        margin: 10px 0;
+    }
+
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+        margin-right: 20px;
+    }
+}
+
+/* Media Query for Larger Devices (PC screens) */
+@media screen and (min-width: 769px) {
+    nav {
+        display: flex;
+        width: 50%;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <p>SHEBZ</p>
+        <div class="menu-icon">icon</div>
+        <nav>
+            <a href="index.html">home</a>
+            <a href="about2.html">About</a>
+            <a href="contact.html">contact</a>
+            <a href="portfolio.html">portfolio</a>
+            <a href="blog.html">blog</a>
+            <a href="LOGIN.HTML">sign in</a>
+        </nav>
+    </div>
+    <div class="blog-container">
+        <h2 class="blog-header">BLOGS</h2>
+        <div class="blog-posts">
+            <div class="blog-post">
+                <img src="assets/hacker.png" alt="Blog Image 1" class="blog-image">
+                <h3 class="blog-title">hacker</h3>
+                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                <a href="#" class="read-more-link">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="assets/soccer.png" alt="Blog Image 2" class="blog-image">
+                <h3 class="blog-title">soccer</h3>
+                <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                <a href="#" class="read-more-link">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="assets/planes.png" alt="PLANES" class="blog-image">
+                <h3 class="blog-title">PLANES</h3>
+                <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                <a href="#" class="read-more-link">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="assets/image 4.png" alt="food" class="blog-image">
+                <h3 class="blog-title">FOODS</h3>
+                <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                <a href="#" class="read-more-link">Read More</a>
+            </div>    
+        </div>
+        <div class="all-rights-reserved">
+            All Rights Reserved 2024
+        </div>
+    </div>
+    <script>
+        const menuIcon = document.querySelector('.menu-icon');
+        const nav = document.querySelector('nav');
+
+        menuIcon.addEventListener('click', () => {
+            nav.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

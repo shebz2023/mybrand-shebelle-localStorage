@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #16093B;
+            color: #fff;
+        }
+
+        .header {
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #160920;
+            height: 60px;
+            color: white;
+            top: 0;
+            width: 100%;
+            padding: 0 20px;
+            z-index: 1000; 
+        }
+
+        .header p {
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 20px;
+            color: #0066CC;
+        }
+
+        nav {
+            width: 50%;
+            justify-content: space-around;
+            display: flex;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin-right: 10px;
+            font-family: 'YourCoolFont', sans-serif;
+        }
+
+        nav a:hover {
+            background-color: #0066CC;
+            color: #F9F6F6;
+            border-radius: 5px;
+        }
+
+        .portfolio-container {
+            width: 80%;
+            margin: 80px auto;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #0066CC;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .portfolio-header {
+            margin-bottom: 20px;
+        }
+
+        .portfolio-item {
+            margin-bottom: 40px;
+        }
+
+        .portfolio-images {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .portfolio-images img {
+            width: 100%;
+            max-width: 300px;
+            height: 200px; 
+            object-fit: cover; 
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .portfolio-description {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .footer img {
+            width: 150px;
+            height: 150px;
+            margin-right: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .footer img:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <p>SHEBZ</p>
+        <nav>
+            <a href="index.html">home</a>
+            <a href="about2.html">About</a>
+            <a href="contact.html">contact</a>
+            <a href="portfolio.html">portfolio</a>
+            <a href="blog.html">blog</a>
+            <a href="LOGIN.HTML">sign in</a>
+        </nav>
+    </div>
+    <div class="portfolio-container">
+        <h2 class="portfolio-header">My Portfolio</h2>
+        <div class="portfolio-images">
+            <div class="portfolio-item">
+                <img src="assets/project1.png" alt="Project 1">
+                <p>2023 started freecodecamp studies</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="assets/project2.png" alt="Project 2">
+                <p>2024 joined andela technical program</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="assets/coding.jpg" alt="Project 3">
+                <p>made a polydrome project </p>
+            </div>
+            <div class="portfolio-item">
+                <img src="assets/roman-numerals.png" alt="Project 4">
+                <p>2023 made Roman Numeral Converter.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="assets/cypher.jpg" alt="Project 5">
+                <p>2023 made a caesar cypher</p>
+        </div>
+        <div class="portfolio-item">
+                <img src="assets/kids-hula-hooping-outside.jpg" alt="Project 5">
+                <p>2023 joined urugerero program</p>
+        </div>
+        <div class="portfolio-description">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
+        </div>
+        <div class="footer">
+            <img src="assets/hire-me-high-resolution-logo.png" alt="hire me">
+        </div>
+    </div>
+</body>
+</html>

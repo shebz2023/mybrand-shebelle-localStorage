@@ -6,8 +6,20 @@ body {
     background-repeat: no-repeat;
     color: white;
 }
+.header{
+    background-color: #160920;
+    display:flex;
+    justify-content: space-between;
+}
+.header h1{
+    font-size: 24px;
+    color: #0066CC;
+    margin-left:40px;
+    font-weight: bolder;
+}
 
 nav {
+    width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -24,7 +36,7 @@ nav a {
 }
 
 nav a:hover{
-    background-color: #ddd;
+    background-color: #0066CC;
     color: black;
     border-radius: 5px;
     transform: scale(1.2);
@@ -50,5 +62,5 @@ nav a:hover{
     font-size: 80%;
 }
 .word3{
-    color:rgb(108, 83, 83);
+    color:#0066CC;
 }

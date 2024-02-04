@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN-IN</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background:url(assets/wallpaperflare.com_wallpaper\ \(2\).jpg)
+            
+        }
+
+        .container {
+            width: 60%; 
+            height: 80%;
+            background-color: rgba(9, 20, 45, 0.5);
+            border-radius: 8px;
+            padding: 30px;
+            border: 1px solid #263859; /* Darker blue border */
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            box-sizing: border-box;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(250, 245, 245, 0.1); /* Subtle box shadow */
+            
+        }
+
+        button {
+            height: 10%;
+            width: 20%; 
+            font-size: 20px;
+            background-color:#160920;
+            color: #ffffff; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: rgb(108, 83, 83);
+        }
+
+        input {
+            font-size: 20px;
+            padding: 15px;
+            border: 1px solid #3282b8;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 70%; 
+            color: #ffffff;
+            background-color: #160920;
+            outline: none;
+            transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        input::placeholder {
+            color: #a8b2d1;
+        }
+
+        input:focus {
+            border-color: #7ec8e3;
+            background-color: #0066CC;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); 
+        }
+
+        p {
+            font-weight: bold;
+            font-size: 60px;
+            color: #0066CC
+            margin-bottom: 30px;
+        }
+
+        .additional-links {
+            display: flex;
+            width: 50%;
+            margin-top: 20px; 
+        }
+
+        .additional-links a {
+            color: #7ec8e3;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .additional-links a:hover {
+            color: rgb(108, 83, 83);
+        }
+ span{
+    color: rgb(108, 83, 83);;
+ }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <image src="assets/Male User.png"></image>
+        <p>Sign In</p>
+        <input type="text" value="" placeholder="username">
+        <input type="password" value="" placeholder="********">
+        <button type="button" onclick="location.href='index.html'">Sign In</button>
+        <div class="additional-links">
+            <span>Don't have an account yet?</span>
+            <a href="signup.html">Sign Up</a>
+        </div>
+    </div>
+</body>
+</html>

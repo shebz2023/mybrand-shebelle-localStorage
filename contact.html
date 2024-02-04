@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #16093B;
+            color: #fff;
+        }
+
+        .header {
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #160920;
+            height: 60px;
+            color: white;
+            top: 0;
+            width: 100%;
+            padding: 0 20px;
+            z-index: 1000; 
+        }
+
+        .header p {
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 20px;
+            color: #0066CC;
+        }
+
+        nav {
+            width: 50%;
+            justify-content: space-around;
+            display: flex;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin-right: 10px;
+            font-family: 'YourCoolFont', sans-serif;
+        }
+
+        nav a:hover {
+            background-color: #0066CC;
+            color: #F9F6F6;
+            border-radius: 5px;
+        }
+
+        .contact-container {
+            width: 80%;
+            margin: 80px auto;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #0066CC;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-header {
+            margin-bottom: 20px;
+        }
+
+        .contact-form {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .form-textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .form-button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #160920;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .form-button:hover{
+            transform: scale(1.01);
+            color:#0066CC
+        }
+
+        .contact-details {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .contact-details p {
+            margin-bottom: 10px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .contact-details h3 {
+            margin-bottom: 15px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .icons{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .element img {
+            width: 40px; 
+            max-width: 100%; 
+        }
+        .element:hover{
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <p>SHEBZ</p>
+        <nav>
+            <a href="index.html">home</a>
+            <a href="about2.html">About</a>
+            <a href="contact.html">contact</a>
+            <a href="portfolio.html">portfolio</a>
+            <a href="blog.html">blog</a>
+            <a href="LOGIN.HTML">sign in</a>
+        </nav>
+    </div>
+    <div class="contact-container">
+        <div class="contact-details">
+            <h3>CONTACT ME</h3>
+            <p>EMAIL:SHEBELLEKE@GMAIL.COM</p>
+            <p>PHONE:+250723289329</p>
+            <p>ADDRESS:kigali-kicukiro-kanombe-kabeza</p>
+        </div>
+        <div class="contact-form">
+            <input type="text" class="form-input" placeholder="Your Name">
+            <textarea class="form-textarea" placeholder="question or querries"></textarea>
+            <button class="form-button">Send</button>
+        </div>       
+    </div>
+    <footer>
+        <div class="icons">
+            <div class="element"><img src="assets/fb.png" alt=""></div>
+            <div class="element"><img src="assets/ig.png" alt=""></div>
+            <div class="element"><img src="assets/LinkedIn.png" alt=""></div>
+            <div class="element"><img src="assets/Pinterest.png" alt=""></div>
+            <div class="element"><img src="assets/YouTube.png"></div>
+            <div class="element"><img src="assets/TwitterX.png" alt=""></div>
+            <div class="element"><img src="assets/Slack New.png" alt=""></div>
+        </div>
+    </footer>
+</body>
+</html>
