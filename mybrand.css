@@ -1,9 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url(assets/wallpaperflare.com_wallpaper\ \(2\).jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: #16093B;
     color: white;
 }
 .header{
@@ -42,25 +40,52 @@ nav a:hover{
     transform: scale(1.2);
 }
 .wordsContainer{
-    width:70%;
-    margin-left: auto;
-     margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 10%;
-    font-size: xx-large;
+    margin-left:8%;
+    margin-top:15%;
 }
-.word1{
-    font-family: serif;
-    padding-bottom: 5%;
+.wordsContainer h1{
+    font-size:46px;
+    color:black;
+    margin-bottom:20px;
 }
-.word2{
-    font-family: serif;
-    padding-bottom:5%;
-    font-size: 80%;
+span{
+    color:#0066CC
 }
-.word3{
+.wordsContainer p{
     color:#0066CC;
+
 }
+.wordsContainer a{
+    background: #0066CC;
+    padding:10px 18px;
+    text-decoration:none;
+    font-weight:bold;
+    color:white;
+    display:inline-block;
+    margin:30px 0;
+    border-radius:8px;
+
+}
+.images{
+    width:45%;
+    height:80%;
+    position:absolute;
+    bottom:0;
+    right:100px;
+}
+.images img{
+    height:100%;
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform:translate(-50%);
+    transition:bottom 1s,left 1s;
+}
+.images:hover .shape{
+    bottom:40px;
+}
+.images:hover .me{
+    left:45%;
+}
+
+
