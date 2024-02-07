@@ -8,15 +8,19 @@
 </head>
 
 <body>
+    <section id="home">
+        <!-- landing page-->
     <div class="header">
+        
         <h1>S...</h1>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
         <nav>       
-             <a href="index.html">home</a> 
-             <a href="about2.html">About</a> 
-             <a href="contact.html">contact</a> 
-             <a href="portfolio.html">portfolio</a> 
-             <a href="blog.html">blog</a>
-             <a href="LOGIN.HTML">sign in</a> 
+             <a href="#home">Home</a> 
+             <a href="#about">About</a>    
+             <a href="#portfolio">Portfolio</a> 
+             <a href="#blog">Blog</a>
+             <a href="#contact">Contact</a> 
+             <a href="LOGIN.HTML">Sign in</a> 
         </nav>
     </div>
     <div class="wordsContainer">
@@ -29,7 +33,134 @@
             <img src="assets/shebz.png" class="me">
         </div>
     </div>
-
-
+</section>
+<section id="about" >
+    <div class="about">
+    <div class="heading">
+      <h1>About me</h1>
+    </div>
+    <div class="about-container">
+      <div class="about-content">
+        <h2>Crafting Digital Experiences with Passion and Precision </h2>
+        <p>
+            As a front-end teen developer, I blend creativity with technology to craft visually stunning and user-friendly websites and applications. With a passion for design and coding, I specialize in HTML, CSS, and JavaScript to bring concepts to life on the web. 
+        </p>
+        <!-- <button class="about-btn">Read more</button> -->
+        <a href="about2.html">Read more</a>
+      </div>
+      <div class="about-image">
+        <img src="assets/skills.jpg" alt="">
+      </div>
+    </div>
+</div>
+  </section>
+<section id="portfolio">
+    <!-- portfolio page-->
+    <div class="portfolio-container">
+        <h2 class="portfolio-header">My Portfolio</h2>
+        <div class="portfolio-images">
+            <div class="portfolio-item">
+                <img src="assets/project1.png" alt="Project 1">
+                <p>2023 started freecodecamp studies</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="assets/project2.png" alt="Project 2">
+                <p>2024 joined andela technical program</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="assets/coding.jpg" alt="Project 3">
+                <p>made a polydrome project </p>
+            </div>
+            <div class="portfolio-item">
+                <img src="assets/roman-numerals.png" alt="Project 4">
+                <p>2023 made Roman Numeral Converter.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="assets/cypher.jpg" alt="Project 5">
+                <p>2023 made a caesar cypher</p>
+        </div>
+        <div class="portfolio-item">
+                <img src="assets/kids-hula-hooping-outside.jpg" alt="Project 5">
+                <p>2023 joined urugerero program</p>
+        </div>
+        <div class="portfolio-description">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
+        </div>
+        <div class="footer">
+            <img src="assets/hire-me-high-resolution-logo.png" alt="hire me">
+        </div>
+    </div>
+</section>
+<section id="blog">
+    <!-- blog page-->
+    <div class="blog-container">
+        <a href="blog.html">ALL BLOGS>></a>
+        <h2 class="blog-header">BLOGS</h2>
+        <div class="blog-posts">
+            <div class="blog-post">
+                <img src="assets/hacker.png" alt="Blog Image 1" class="blog-image">
+                <h3 class="blog-title">hacker</h3>
+                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+                <a href="#" class="read-more-link">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="assets/soccer.png" alt="Blog Image 2" class="blog-image">
+                <h3 class="blog-title">soccer</h3>
+                <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                <a href="#" class="read-more-link">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="assets/planes.png" alt="PLANES" class="blog-image">
+                <h3 class="blog-title">PLANES</h3>
+                <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                <a href="#" class="read-more-link">Read More</a>
+            </div>
+            <div class="blog-post">
+                <img src="assets/image 4.png" alt="food" class="blog-image">
+                <h3 class="blog-title">FOODS</h3>
+                <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                <a href="#" class="read-more-link">Read More</a>
+            </div>    
+        </div>
+        <div class="all-rights-reserved">
+            All Rights Reserved 2024
+        </div>
+    </div>
+</section>
+<section id="contact">
+    <!-- contact page-->
+    <div class="contact-container">
+        <div class="contact-details">
+            <h3>CONTACT ME</h3>
+            <p>EMAIL:SHEBELLEKE@GMAIL.COM</p>
+            <p>PHONE:+250723289329</p>
+            <p>ADDRESS:kigali-kicukiro-kanombe-kabeza</p>
+        </div>
+        <div class="contact-form">
+            <input type="text" class="form-input" placeholder="Your Name">
+            <textarea class="form-textarea" placeholder="question or querries"></textarea>
+            <button class="form-button">Send</button>
+        </div>       
+    </div>
+    <footer>
+        <div class="icons">
+            <div class="element"><img src="assets/fb.png" alt=""></div>
+            <div class="element"><img src="assets/ig.png" alt=""></div>
+            <div class="element"><img src="assets/LinkedIn.png" alt=""></div>
+            <div class="element"><img src="assets/Pinterest.png" alt=""></div>
+            <div class="element"><img src="assets/YouTube.png"></div>
+            <div class="element"><img src="assets/TwitterX.png" alt=""></div>
+            <div class="element"><img src="assets/Slack New.png" alt=""></div>
+        </div>
+    </footer>
+</section>
+<script>
+   function toggleMenu() {
+            var nav = document.querySelector('nav');
+            var menuIcon = document.querySelector('.menu-icon');
+            nav.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+        }
+</script>
 </body>
 </html>
