@@ -58,10 +58,39 @@
             color: #F9F6F6;
             border-radius: 5px;
         }
+        .wrapper{
+            display: flex;
+        }
+        .one-blog{
+            flex-basis: 70%;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color:#32464e;
+        }
+        .one-blog h1{
+            padding-top:15%;
+            font-size: 30px;
+            color:black;
+        }
+        .one-blog p{
+            padding-top: 5%;
+            font-size:20px;
+        }
+        .one-blog a{
+            background: #0066CC;
+            padding:10px 18px;
+            text-decoration:none;
+            font-weight:bold;
+            color:white;
+            display:inline-block;
+            margin:30px 0;
+            border-radius:8px;
 
+        }
         .blog-container {
-            width: 80%;
-            margin: 80px auto;
+            flex-basis: 30%;
             padding: 20px;
             border-radius: 8px;
             background-color: #4F6D7A;
@@ -90,7 +119,7 @@
         }
 
         .blog-post {
-            width: calc(33.33% - 20px); 
+            width: calc(90% - 5px); 
             margin-bottom: 20px; 
             overflow: hidden;
             background-color: #160920;
@@ -198,6 +227,31 @@
             <a href="LOGIN.HTML">sign in</a>
         </nav>
     </div>
+    <div class="wrapper">
+        <div class="one-blog">
+            <h1>soccer</h1>
+         <p>In est fugiat elit sint magna reprehenderit culpa veniam incididunt. 
+            Dolore quis sit deserunt qui sit enim. Cupidatat aliquip magna irure
+             laboris aliquip. Lorem ipsum dolor sit amet consectetur adipisi
+             cing elit. A omnis dolores architecto aliquam fugiat dicta quis a
+             dipisci rerum laboriosam! Expedita voluptatum dolorum, adipisci 
+             fugiat perferendis tempore! Ullam dicta aut porro deleniti corpor
+             is repellendus temporibus. Magni quidem itaque quae omnis, tempor
+             a numquam obcaecati quos nesciunt esse? Provident, nihil itaque! Consequa
+             tur asperiores esse quidem possimus, voluptatum numquam odio molliti
+             a vel sed minima sequi tempore alias laborum reprehenderit et repell
+             endus illum accusamus rem libero ipsum nulla dolores in ipsam! Qui
+             squam reprehenderit omnis, cum corporis fugiat molestias nesciunt ne
+             mo dolorem odit sint consectetur labore, quo doloremque? Pariatur, u
+             llam! Nisi ipsum ab odit, pariatur non fugiat ratione accusamus, atqu
+             e, obcaecati harum vero nihil! Distinctio quam, culpa, numquam at i
+              repudiandae earum pariatur ratione provident inventore magni i
+
+              mpedit quas rem?
+            </p>
+         <a href="">like</a>
+         <a href="">comment</a>
+        </div>
     <div class="blog-container">
         <h2 class="blog-header">BLOGS</h2>
         <div class="blog-posts">
@@ -205,31 +259,32 @@
                 <img src="assets/hacker.png" alt="Blog Image 1" class="blog-image">
                 <h3 class="blog-title">hacker</h3>
                 <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
-                <a href="single.html" class="read-more-link">Read More</a>
+                <a href="#" class="read-more-link">Read More</a>
             </div>
             <div class="blog-post">
                 <img src="assets/soccer.png" alt="Blog Image 2" class="blog-image">
                 <h3 class="blog-title">soccer</h3>
                 <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-                <a href="single.html" class="read-more-link">Read More</a>
+                <a href="#" class="read-more-link">Read More</a>
             </div>
             <div class="blog-post">
                 <img src="assets/planes.png" alt="PLANES" class="blog-image">
                 <h3 class="blog-title">PLANES</h3>
                 <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-                <a href="single.html" class="read-more-link">Read More</a>
+                <a href="#" class="read-more-link">Read More</a>
             </div>
             <div class="blog-post">
                 <img src="assets/image 4.png" alt="food" class="blog-image">
                 <h3 class="blog-title">FOODS</h3>
                 <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-                <a href="single.html" class="read-more-link">Read More</a>
+                <a href="#" class="read-more-link">Read More</a>
             </div>    
         </div>
         <div class="all-rights-reserved">
             All Rights Reserved 2024
         </div>
     </div>
+</div>
     <script>
         const menuIcon = document.querySelector('.menu-icon');
         const nav = document.querySelector('nav');

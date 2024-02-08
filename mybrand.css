@@ -2,7 +2,6 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #16093B;
-    color: white;
 }
 .header {
     position: fixed;
@@ -90,11 +89,11 @@ nav a:hover{
 /* landing page css */
 .wordsContainer{
     margin-left:8%;
-    margin-top:15%;
+    margin-top:8%;
 }
 .wordsContainer h1{
     font-size:46px;
-    color:black;
+    color:#4F6D7A;
     margin-bottom:20px;
 }
 span{
@@ -126,6 +125,31 @@ span{
     border-radius:8px;
 
 }
+.wordsContainer input[type="email"] {
+    width: 20%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color:#4F6D7A ;
+  }
+  .wordsContainer input::placeholder{
+    color:white;
+    font-family: cursive;
+  }
+  .wordsContainer input[type="submit"] {
+    width: 20%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0066cc;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .wordsContainer input[type="submit"]:hover {
+    background-color: #004993;
+  }
 .images{
     width:45%;
     height:80%;
@@ -305,7 +329,7 @@ span{
     margin: 80px auto;
     padding: 20px;
     border-radius: 8px;
-    background-color: #0066CC;
+    background-color:#4F6D7A;
     color: #fff;
     text-align: center;
     display: flex;
@@ -372,7 +396,7 @@ footer {
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #0066CC;
+    background: #4F6D7A;
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
@@ -384,7 +408,7 @@ footer {
     margin: 80px auto;
     padding: 20px;
     border-radius: 8px;
-    background-color: #0066CC;
+    background-color: #4F6D7A;
     color: #fff;
     text-align: center;
     display: flex;
@@ -506,7 +530,7 @@ footer {
     margin: 80px auto;
     padding: 20px;
     border-radius: 8px;
-    background-color: #0066CC;
+    background-color: #4F6D7A;
     color: #fff;
     text-align: center;
     display: flex;
