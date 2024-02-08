@@ -87,6 +87,7 @@ nav a:hover{
                 color: white;
             }
         }
+/* landing page css */
 .wordsContainer{
     margin-left:8%;
     margin-top:15%;
@@ -145,6 +146,27 @@ span{
 }
 .images:hover .me{
     left:45%;
+}
+/* mobile of landing page */
+@media screen and (max-width:768px){
+    
+.images{
+    display: none;
+    width:45%;
+    height:80%;
+    position:absolute;
+    bottom:0;
+    right:100px;
+}
+.images img{
+    display: none;
+    height:100%;
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform:translate(-50%);
+    transition:bottom 1s,left 1s;
+}
 }
 /*css ABOUT*/
 .about{
@@ -433,6 +455,30 @@ footer {
     text-align: center;
     color: #fff;
 }
+/*mobile blog*/
+@media screen and (max-width:768px){
+ .blog-posts {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    
+    .blog-posts {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+    }
+    .blog-post {
+        width: calc(95%); 
+        margin-bottom: 20px; 
+        overflow-x: auto;
+        background-color: #160920;
+        color: #fff;
+        border-radius: 8px;
+    }
+    }
 /*css CONTACT*/
 .contact-container {
     width: 80%;
@@ -524,6 +570,22 @@ footer {
     transform: scale(1.1);
     cursor: pointer;
 }
+/* mobile contact */
+@media screen and (max-width:768px) {
+  .contact-container {
+        width: 80%;
+        margin: 80px auto;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #0066CC;
+        color: #fff;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}
 /*snap scroll*/
 html{
     scroll-snap-type:y mandatory;
@@ -539,4 +601,23 @@ section{
 #portfolio, #blog{
     overflow: hidden;
     padding-top: 20px; 
+}
+/* mobile screen heights */
+@media screen and (max-width:768px){
+    html{
+        scroll-snap-type:none;
+    }
+    section{
+        height: auto;
+        scroll-snap-align: start;
+    }
+    #home, #contact, #about{
+        overflow: scroll;
+        padding-top: 80px; 
+    }
+    #portfolio, #blog{
+        overflow:scroll;
+        padding-top: 20px; 
+    }
+
 }
