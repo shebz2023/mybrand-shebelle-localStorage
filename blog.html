@@ -72,6 +72,37 @@
             align-items: center;
         }
 
+/* Style for the search container */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 90%;
+    padding:auto;
+    box-shadow: 5px 10px 10px rgba(21, 20, 20, 0.1),0 0 20px rgba(36, 8, 77, 0.2);
+}
+.search-input {
+    width:100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+.search-button {
+    Width:20%;
+    padding: 10px 20px;
+    background-color: #0066CC;
+    color: #fff;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+.search-button:hover {
+    background-color: #013063;
+}
+
         .blog-header {
             margin-bottom: 20px;
         }
@@ -170,6 +201,27 @@
         cursor: pointer;
         margin-right: 20px;
     }
+    .blog-posts {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    
+    .blog-posts {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+    }
+    .blog-post {
+        width: calc(95%); 
+        margin-bottom: 20px; 
+        overflow-x: auto;
+        background-color: #160920;
+        color: #fff;
+        border-radius: 8px;
+    }
 }
 
 /* Media Query for Larger Devices (PC screens) */
@@ -200,7 +252,11 @@
     </div>
     <div class="blog-container">
         <h2 class="blog-header">BLOGS</h2>
-        <div class="blog-posts">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search BLOGS...">
+            <button class="search-button">Search</button>
+        </div>
+         <div class="blog-posts">
             <div class="blog-post">
                 <img src="assets/hacker.png" alt="Blog Image 1" class="blog-image">
                 <h3 class="blog-title">hacker</h3>
