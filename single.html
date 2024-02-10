@@ -200,9 +200,16 @@
         cursor: pointer;
         margin-right: 20px;
     }
+    .blog-container{
+        display:none;
+    }
+    .one-blog{
+        flex-basis: 100%;
+    }
+
 }
 
-/* Media Query for Larger Devices (PC screens) */
+/* Media Query for Larger Devices */
 @media screen and (min-width: 769px) {
     nav {
         display: flex;
@@ -218,7 +225,7 @@
 <body>
     <div class="header">
         <p>SHEBZ</p>
-        <div class="menu-icon">icon</div>
+        <div class="menu-icon">&#9776;</div>
         <nav>
             <a href="index.html">home</a>
             <a href="index.html">About</a>
@@ -252,6 +259,11 @@
             </p>
          <a href="">like</a>
          <a href="">comment</a>
+         <div class="comment-session">
+            <post-comment>
+                <comment-list></comment-list>
+            </post-comment>
+         </div>
         </div>
     <div class="blog-container">
         <h2 class="blog-header">BLOGS</h2>
