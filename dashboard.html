@@ -175,7 +175,7 @@
     
 <div class="container">
     <div class="dashimg">
-        <img src="assets/dashboard.png" alt="Example Image">
+        <img src="assets/dashboard.png" alt="">
     </div>
     <!-- Form to add a new blog post -->
     <form>
@@ -203,21 +203,21 @@
     </div>
 
     <!-- Notifications -->
-    <div class="notifications">
+    <div class="notifications" id="notifications">
         <h2><img src="assets/Alarm.png" alt="Notification Icon"> Notifications</h2>
         <p>user19 liked your post</p>
         <p>kelvin commented on the food post</p>
     </div>
 
     <!-- Messages -->
-    <div class="messages">
+    <div class="messages" id="messages">
         <h2><img src="assets/Speech Bubble.png" alt="Message Icon"> Messages</h2>
         <p>i like these articles</p>
         <p>when are you releasing article about messi part2</p>
     </div>
 
     <!-- Status -->
-    <div class="status">
+    <div class="status" id="status">
         <h2>Status</h2>
         <p>400 users 17 posts</p>
     </div>
@@ -228,5 +228,24 @@
         <a href="index.html">logout</a> 
     </div>
 </footer>
+
+<script>
+    /*link to messages by div*/
+    var messages= document.getElementById("messages");
+    messages.addEventListener("click", function() {
+      window.location.href = "messages.html";
+    });
+    /*link to notifications by div*/
+    var notifications=document.getElementById("notifications");
+    notifications.addEventListener("click", function(){
+        window.location.href="notifications.html";
+    });
+    /* link to status by div*/
+    var status=document.getElementById("status");
+    status.addEventListener("click", function(){
+        window.location.href="status.html";
+    });
+</script>
+  
 </body>
 </html>
