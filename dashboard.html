@@ -53,6 +53,24 @@
     .btn:hover {
         background-color: #7c8c5b;
     }
+    #blogContainer{
+        display:flex;
+        width: 100%;
+        overflow-x: scroll; 
+        white-space: nowrap; 
+    }
+    /* scroll bar */
+    #blogContainer::-webkit-scrollbar {
+    height: 8px;
+    }
+    #blogContainer::-webkit-scrollbar-thumb {
+    background-color: #514e4e;
+    border-radius: 5px
+    }
+    #blogContainer::-webkit-scrollbar-track {
+    background-color: #000000;
+}
+
     .blog-post {
         background-color: #fff;
         padding: 20px;
@@ -168,7 +186,14 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.</p>
             <button class="edit-btn">Edit</button>
             <button class="delete-btn">Delete</button>
-            <button class="update-btn">Update</button> <!-- This button was not visible previously -->
+            <button class="update-btn">Update</button> 
+        </div>
+        <div class="blog-post">
+            <h3>MY SECOND BLOG</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.</p>
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
+            <button class="update-btn">Update</button> 
         </div>
     </div>
 
