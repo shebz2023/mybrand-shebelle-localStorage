@@ -49,7 +49,6 @@ nav a:hover{
  .menu-icon {
             display: none;
         }
-
         @media screen and (max-width: 768px) {
             .header {
                 padding: 0;
@@ -63,8 +62,10 @@ nav a:hover{
                 position: absolute;
                 top: 60px;
                 left: 0;
-                background-color: #9cb071;
+                background-color: #1a1a1a;
                 text-align: center;
+                height: 700px;
+                
             }
             nav.active {
                 display: block;
