@@ -17,19 +17,19 @@
         <h1>S...</h1>
         <div class="menu-icon" onclick="toggleMenu()"><i class='bx bx-menu'></i></div>
         <nav>       
-             <a href="#home">Home</a> 
-             <a href="#about">About</a>    
-             <a href="#portfolio">Portfolio</a> 
-             <a href="#blog">Blog</a>
-             <a href="#contact">Contact</a> 
-             <a href="LOGIN.HTML">Sign in</a> 
+             <a href="#home" onclick="hideMenu()">Home<span></spans></a> 
+             <a href="#about"onclick="hideMenu()">About<span></span></a>    
+             <a href="#portfolio"onclick="hideMenu()">Portfolio<span></span></a> 
+             <a href="#blog"onclick="hideMenu()">Blog<span></span></a>
+             <a href="#contact"onclick="hideMenu()">Contact<span></span></a> 
+             <a href="LOGIN.HTML"onclick="hideMenu()">Sign in<span></span></a> 
         </nav>
     </div>
     <div class="wordsContainer">
         <h1>I'm MUSABE <span>Shebelle kelvin</span></h1>
         <p>this is my portfolio website with some cool articles to try in one place<br>ENJOY!!
         </p>
-        <a href="#">DOWNLOAD CV</a>
+        <a href="assets/cv.png" download="cv">DOWNLOAD CV</a>
         <form action="#" method="post">
             <input type="email" id="email" name="email" placeholder="Your email.." required>
             <input type="submit" value="Subscribe">
@@ -160,12 +160,18 @@
     </footer>
 </section>
 <script>
+    // navigaation bar 
    function toggleMenu() {
             var nav = document.querySelector('nav');
-            var menuIcon = document.querySelector('.menu-icon');
             nav.classList.toggle('active');
-            menuIcon.classList.toggle('active');
         }
+    function hideMenu() {
+        var nav = document.querySelector('nav');
+        nav.classList.remove('active');
+    }
+    // end of nav bar
+    // validating subscription form
+
 </script>
 </body>
 </html>

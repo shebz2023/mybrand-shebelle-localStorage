@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -12,51 +14,107 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: sans-serif;
             background-color: #1a1a1a;
             color: #fff;
             margin: 0;
         }
 
         .header {
-            position: fixed;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #262626;
-            height: 60px;
-            color: white;
-            top: 0;
-            width: 100%;
-            padding: 0 20px;
-            z-index: 1000; 
-        }
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #262626;
+    height: 60px;
+    color: white;
+    top: 0;
+    width: 100%;
+    padding: 0 20px;
+    z-index: 1000; }
+.header h1{
+    font-size: 24px;
+    color: white;
+    margin-left:40px;
+    font-weight: bolder;
+}
 
-        .header p {
-            font-size: 24px;
-            font-weight: bold;
-            margin-left: 20px;
-            color: white;
-        }
+nav {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #262626;
+    height: 60px;
+    color: white;
+}
 
-        nav {
-            width: 50%;
-            justify-content: space-around;
-            display: flex;
-        }
+nav a {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    padding: 10px;
+}
+nav a span{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-bottom:2px solid #9cb071;
+    border-radius:15px;
+    transform:scale(0) translateY(50px);
+    transition: .5s;
+    opacity:0;
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            margin-right: 10px;
-            font-family: 'YourCoolFont', sans-serif;
-        }
+}
 
-        nav a:hover {
-            background-color: #9cb071;
-            color: #F9F6F6;
-            border-radius: 5px;
+nav a:hover span{
+    color:#9cb071;
+    transform: scale(1) translateY(0);
+    opacity:1;
+}
+/* mobile nav bar */
+ .menu-icon {
+            display: none;
+        }
+        @media screen and (max-width: 768px) {
+            .header {
+                padding: 0;
+            }
+            .header h1 {
+                margin-left: 0;
+            }
+            nav {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #1a1a1a;
+                text-align: center;
+                height: 700px;
+                
+            }
+            nav.active {
+                display: block;
+            }
+            nav a {
+                display: block;
+                padding: 10px;
+            }
+            .header nav a:hover {
+                transform: none;
+            }
+            .menu-icon {
+                display: block;
+                cursor: pointer;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 1001;
+                color: white;
+            }
         }
         .wrapper{
             display: flex;
@@ -70,8 +128,12 @@
             align-items: center;
             background-color:#1a1a1a;
         }
+        .one-blog .title{
+            width:100%;
+            height:15%;
+        }
         .one-blog h1{
-            padding-top:15%;
+            padding-top:10px;
             font-size: 30px;
             color:white;
         }
@@ -79,17 +141,53 @@
             padding-top: 5%;
             font-size:20px;
         }
-        .one-blog a{
-            background: #9cb071;
-            padding:10px 18px;
-            text-decoration:none;
-            font-weight:bold;
-            color:white;
-            display:inline-block;
-            margin:30px 0;
-            border-radius:8px;
-
+        .one-blog i{
+            padding-top: 30px;
+            height: 40px;
+            color:#9cb071;
         }
+        /* comment section */
+    .comment-container {
+            background-color: #000;
+            margin-top: 1.5rem;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+    }
+    .profile-pic {
+      width: 1.5rem;
+      height:1.5rem;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .comment {
+      margin-top: 5px;
+    }
+    .comment-like {
+      color: green;
+      margin-right: 10px;
+    }
+    .comment-dislike {
+      color: red;
+      margin-right: 10px;
+    }
+    .comment-form textarea {
+      width: 100%;
+      margin-top: 10px;
+    }
+    .comment-form button {
+      margin-top: 10px;
+      background-color:#1a1a1a;
+      border: 2px solid #ccc;
+      color:white;
+    }
+    .comment-form button:hover{
+      transform: scale(1.1);
+      transition: .5s;
+      border:2px solid black ;
+    }
+    /*  the left container */
         .blog-container {
             flex-basis: 30%;
             padding: 20px;
@@ -157,86 +255,48 @@
             text-decoration: underline;
         }
 
-        .all-rights-reserved {
+        .viewmore{
             margin-top: 20px;
             text-align: center;
-            color: #fff;
+            color: #9cb071;
+            cursor:pointer;
         }
-
+        .viewmore:hover{
+            transform: scale(1.1);
+        }
         /* Media Query for Small Devices */
         @media screen and (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        height: auto;
-    }
-
-    nav {
-        width: 100%;
-        flex-direction: column;
-        display: none;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background-color: #9cb071;
-        border-radius: 0 0 8px 8px;
-        text-align: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    nav.show {
-        display: flex;
-    }
-
-    nav a {
-        margin: 0;
-    }
-
-    .header p {
-        margin: 10px 0;
-    }
-
-    .menu-icon {
-        display: block;
-        cursor: pointer;
-        margin-right: 20px;
-    }
     .blog-container{
         display:none;
     }
     .one-blog{
         flex-basis: 100%;
     }
+    .comment-container {
+        flex-basis: 100%;
+    }
 
 }
 
-/* Media Query for Larger Devices */
-@media screen and (min-width: 769px) {
-    nav {
-        display: flex;
-        width: 50%;
-    }
-
-    .menu-icon {
-        display: none;
-    }
-}
     </style>
 </head>
 <body>
     <div class="header">
-        <p>SHEBZ</p>
-        <div class="menu-icon">&#9776;</div>
-        <nav>
-            <a href="index.html">home</a>
-            <a href="index.html">About</a>
-            <a href="index.html">portfolio</a>
-            <a href="blog.html">blog</a>
-            <a href="index.html">contact</a>
-            <a href="LOGIN.HTML">sign in</a>
+        
+        <h1>S...</h1>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <nav>       
+             <a href="index.html">Home<span></spans></a> 
+             <a href="index.html">About<span></span></a>    
+             <a href="index.html">Portfolio<span></span></a> 
+             <a href="blog.html">Blog<span></span></a>
+             <a href="contact.html">Contact<span></span></a> 
+             <a href="LOGIN.HTML">Sign in<span></span></a> 
         </nav>
     </div>
     <div class="wrapper">
         <div class="one-blog">
+            <img src="assets/hacker.png" class="title"alt="blog picture">
             <h1>soccer</h1>
          <p>In est fugiat elit sint magna reprehenderit culpa veniam incididunt. 
             Dolore quis sit deserunt qui sit enim. Cupidatat aliquip magna irure
@@ -257,14 +317,57 @@
 
               mpedit quas rem?
             </p>
-         <a href="">like</a>
-         <a href="">comment</a>
-         <div class="comment-session">
-            <post-comment>
-                <comment-list></comment-list>
-            </post-comment>
-         </div>
+            5<i class="far fa-thumbs-up"></i>
+            2<i class="far fa-thumbs-down"></i>
+         <div class="comment-container">
+            <div class="commenter">
+              <img class="profile-pic" src="assets/shebz.png" alt="Profile Picture">
+              <span class="commenter-name">patrick</span>
+            </div>
+            <div class="comment">
+              <span class="comment-like"><i class="far fa-thumbs-up"></i> 10</span>
+              <span class="comment-dislike"><i class="far fa-thumbs-down"></i> 2</span>
+              <p>
+                what country is this????
+              </p>
+            </div>
+          </div>
+        
+          <div class="comment-container">
+            <div class="commenter">
+              <img class="profile-pic" src="assets/coding.jpg" alt="Profile Picture">
+              <span class="commenter-name">ange250</span>
+            </div>
+            <div class="comment">
+              <span class="comment-like"><i class="far fa-thumbs-up"></i> 15</span>
+              <span class="comment-dislike"><i class="far fa-thumbs-down"></i> 3</span>
+              <p>
+               how can you not score that!
+              </p>
+            </div>
+          </div>
+        
+          <div class="comment-container">
+            <div class="commenter">
+              <img class="profile-pic" src="assets/hacker.png" alt="Profile Picture">
+              <span class="commenter-name">musabe</span>
+            </div>
+            <div class="comment">
+              <span class="comment-like"><i class="far fa-thumbs-up"></i> 8</span>
+              <span class="comment-dislike"><i class="far fa-thumbs-down"></i> 1</span>
+              <p>
+                wow!!keep it up bro the article is fire
+              </p>
+            </div>
+          </div>
+        
+          <form action="" class="comment-form">
+            <h3>add a Comment</h3>
+            <textarea placeholder="leave a comment" required></textarea>
+            <button>comment</button>
+          </form>
         </div>
+        <!-- side part of page -->
     <div class="blog-container">
         <h2 class="blog-header">BLOGS</h2>
         <div class="blog-posts">
@@ -293,18 +396,21 @@
                 <a href="#" class="read-more-link">Read More</a>
             </div>    
         </div>
-        <div class="all-rights-reserved">
-            All Rights Reserved 2024
+        <div class="viewmore">
+            view more
         </div>
     </div>
 </div>
     <script>
-        const menuIcon = document.querySelector('.menu-icon');
-        const nav = document.querySelector('nav');
-
-        menuIcon.addEventListener('click', () => {
-            nav.classList.toggle('show');
-        });
+        // navbar
+        function toggleMenu() {
+            var nav = document.querySelector('nav');
+            var menuIcon = document.querySelector('.menu-icon');
+            nav.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+        }
+        // importing icons 
+        src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
     </script>
 </body>
 </html>
