@@ -149,8 +149,20 @@ span{
   .wordsContainer input::placeholder{
     color:white;
     font-family: cursive;
+    position:relative;
   }
-  .wordsContainer input[type="submit"] {
+  .wordsContainer form span{
+    position:absolute;
+    margin-left:-150px;
+    margin-top:40px;
+    font-size: 12px;
+    font-family: cursive;
+    color:rgb(255, 93, 93);
+  }
+  .wordsContainer form i{
+    color:seagreen;
+  }
+  .wordsContainer button{
     width: 20%;
     padding: 10px;
     border: none;
@@ -189,12 +201,15 @@ span{
     
 .images{
     display: none;
-    width:45%;
-    height:80%;
-    position:absolute;
-    bottom:0;
-    right:100px;
 }
+.wordsContainer form span{
+    position:absolute;
+    margin-left:-100px;
+    margin-top:40px;
+    font-size: 12px;
+    font-family: cursive;
+    color:rgb(255, 93, 93);
+  }
 .images img{
     display: none;
 }
@@ -532,6 +547,7 @@ footer {
     }
 /*css CONTACT*/
 .contact-container {
+    position:relative;
     width: 80%;
     margin: 80px auto;
     padding: 20px;
@@ -558,6 +574,7 @@ footer {
 
 .form-input,
 .form-textarea {
+    
     width: 100%;
     margin-bottom: 15px;
     padding: 10px;
@@ -565,6 +582,15 @@ footer {
     border-radius: 5px;
     background-color: #fff;
     color: #000;
+}
+
+#nameError,#email2Error,#msgError,#submitError{
+    color:red;
+    font-size: 12px;
+    font-family: cursive;
+}
+.contact-form i{
+    color:seagreen;
 }
 
 .form-textarea {

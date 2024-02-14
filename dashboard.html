@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dashboard</title>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 <style>
     
     body {
@@ -41,6 +43,14 @@
         outline: none;
         border-color: 3px solid black;
     }
+    form i{
+        color:seagreen;
+    }
+    #titleError,#contentError,#submitError{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        color:red;
+    }
     .btn {
         padding: 10px 20px;
         background-color: #9cb071;
@@ -48,7 +58,7 @@
         border: none;
         border-radius: 4px;
         cursor: pointer;
-        transition: background-color 0.3s;
+        transition:  0.3s;
     }
     .btn:hover {
         background-color: #7c8c5b;
@@ -179,9 +189,12 @@
     </div>
     <!-- Form to add a new blog post -->
     <form>
-        <input type="text" id="blogTitle" placeholder="Enter Blog Title" required>
-        <textarea id="blogContent" placeholder="Enter Blog Content" required></textarea>
-        <button type="submit" class="btn">Add Blog</button>
+        <input type="text" id="blogTitle" placeholder="Enter Blog Title" onkeyup="validatetitle()">
+        <span id="titleError"></span>
+        <textarea id="blogContent" placeholder="Enter Blog Content" onkeyup="validateContent()"></textarea>
+        <span id="contentError"></span>
+        <button type="button" onclick="validate()" class="btn">Add Blog</button>
+        <span id="submitError"></span>
     </form>
     <!-- Container to display existing blog posts -->
     <div id="blogContainer">
@@ -245,6 +258,50 @@
     statusdiv.addEventListener("click", function(){
         window.location.href="status.html";
     });
+    //validating the add blog form
+    // validate the title
+    var titleError=document.getElementById('titleError');
+    var contentError = document.getElementById('contentError');
+    var submitError=document.getElementById('submitError');
+    function validatetitle(){
+        var blogTitle=document.getElementById('blogTitle').value;
+        if(blogTitle==""){
+            titleError.innerHTML="Please enter something";
+            return false;
+        }
+        if(!blogTitle.match(/^[a-zA-Z][^\s]{4,}$/)){
+        titleError.innerHTML="Just complete 5 characters";
+        return false;
+        }
+        titleError.innerHTML="<i class='bx bxs-user-check'></i>";
+        return true;
+    }
+    // validate the blog content
+    function validateContent(){
+        var blogContent=document.getElementById('blogContent').value;
+        var required=30;
+        var left=required-blogContent.length;
+        if(blogContent==""){
+            contentError.innerHTML="Type something";
+            return false;
+        }
+        if(left>0){
+            contentError.innerHTML="keep coming ,only" + left + "characters left";
+            return false;
+        }
+        contentError.innerHTML="<i class='bx bxs-user-check'></i>";
+        return true;
+    }
+    // sending button
+    function validate(){
+        if(!validatetitle() || !validateContent()){
+           submitError.style.display='block';
+           setTimeout(function(){submitError.style.display='none'},3000);
+           submitError.innerHTML="your BLOG is incomplete";
+           return false;
+         }
+   }
+
 </script>
   
 </body>

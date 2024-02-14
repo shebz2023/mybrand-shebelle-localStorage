@@ -6,6 +6,7 @@
     <title>Blog</title>
     <!-- icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         * {
             margin: 0;
@@ -187,6 +188,10 @@ nav a:hover span{
       transition: .5s;
       border:2px solid black ;
     }
+    #error{
+        color: red;
+        font-size: 12px;
+    }
     /*  the left container */
         .blog-container {
             flex-basis: 30%;
@@ -361,10 +366,11 @@ nav a:hover span{
             </div>
           </div>
         
-          <form action="" class="comment-form">
+          <form class="comment-form">
             <h3>add a Comment</h3>
-            <textarea placeholder="leave a comment" required></textarea>
-            <button>comment</button>
+            <textarea placeholder="leave a comment" id="comment" ></textarea>
+            <button type="button" onclick="validate()">comment</button>
+            <span id="error"></span>
           </form>
         </div>
         <!-- side part of page -->
@@ -409,6 +415,17 @@ nav a:hover span{
             nav.classList.toggle('active');
             menuIcon.classList.toggle('active');
         }
+        // validating the comment section
+   function validate(){
+    var error=document.getElementById('error');
+    var comment=document.getElementById('comment').value;
+    if(comment==""){
+        error.innerHTML="you cant leave a blank comment";
+        return false;
+    }
+    error.innerHTML="<i class='bx bxs-check-circle'></i>"
+    return true;
+}
         // importing icons 
         src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
     </script>
