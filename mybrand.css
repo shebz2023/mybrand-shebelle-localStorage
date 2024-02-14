@@ -144,6 +144,7 @@ span{
     border: none;
     border-radius: 5px;
     background-color:#262626 ;
+    color:white;
   }
   .wordsContainer input::placeholder{
     color:white;
