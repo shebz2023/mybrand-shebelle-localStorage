@@ -182,13 +182,15 @@
         var email = document.getElementById('email').value;
         var emailError = document.getElementById('emailError'); 
 
-        if (email.length == 0) {
+        if (email.length == 0) { 
             emailError.innerHTML = "Email is required";
+            setTimeout(function(){ emailError.innerHTML = ''; }, 3000); 
             return false;
         }
 
-        if (!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+        if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
             emailError.innerHTML = 'Email Invalid';
+            setTimeout(function(){ emailError.innerHTML = ''; }, 3000); 
             return false;
         }
 
@@ -216,10 +218,12 @@
         var name=document.getElementById('name').value;
         if(name.length==0){
             nameError.innerHTML='Name is required';
+            setTimeout(function(){ nameError.innerHTML = ''; }, 3000); 
             return false;
         }
         if(!name.match(/^[A-Za-z\s'-]+$/)){
             nameError.innerHTML ='write full name';
+            setTimeout(function(){ nameError.innerHTML = ''; }, 3000);
             return false;
         }
         nameError.innerHTML="<i class='bx bxs-check-circle' ></i>"
@@ -231,11 +235,13 @@
 
         if (email2.length == 0) {
             email2Error.innerHTML = "Email is required";
+            setTimeout(function(){ email2Error.innerHTML = ''; }, 3000);
             return false;
         }
 
-        if (!email2.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+        if (!email2.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
             email2Error.innerHTML = 'Email Invalid';
+            setTimeout(function(){ email2Error.innerHTML = ''; }, 3000);
             return false;
         }
 
@@ -249,6 +255,7 @@
         var left=required-message.length;
         if(left>0){
             msgError.innerHTML=left + 'more characters required';
+            setTimeout(function(){ msgError.innerHTML = ''; }, 3000);
             return false;
         }
         msgError.innerHTML="<i class='bx bx-check-circle' ></i>";
