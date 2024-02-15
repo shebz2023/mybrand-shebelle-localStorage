@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIGN-IN</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -95,7 +96,13 @@
             color: rgb(120, 118, 118);
             margin-bottom: 30px;
         }
-
+        #emailError,#pwdError,#submitError{
+            font-size: 12px;
+            color:red;
+        }
+        .container i{
+            color:seagreen;
+        }
         .additional-links {
             display: flex;
             width: 50%;
@@ -162,13 +169,60 @@
     <div class="container">
         <image src="assets/Male User.png"></image>
         <p>Sign In</p>
-        <input type="text" value="" placeholder="username">
-        <input type="password" value="" placeholder="********">
-        <button type="button" onclick="location.href='dashboard.html'">Sign In</button>
+        <input type="email" value="" placeholder="email" id="email" onkeyup="validateEmail()">
+        <span id="emailError"></span>
+        <input type="password" value="" placeholder="********" id="password" onkeyup="validatepwd()">
+        <span id="pwdError"></span>
+        <button type="button" onclick="validateAndSubmit()">Sign In</button>
+
+        <span id="submitError"></span>
         <div class="additional-links">
             <span>Don't have an account yet?</span>
             <a href="signup.html">Sign Up</a>
         </div>
     </div>
+    <script>
+        // Validation
+        var emailError = document.getElementById('emailError'); 
+        var pwdError = document.getElementById('pwdError');
+        var submitError = document.getElementById('submitError');
+        
+        function validateEmail() {
+            var email = document.getElementById('email').value;
+            if (email.trim() === "") {
+                emailError.innerHTML = "Email is required";
+                return false;
+            }
+
+            if (!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+                emailError.innerHTML = 'Invalid email format';
+                return false;
+            }
+
+            emailError.innerHTML = "<i class='bx bxs-check-circle'></i>";
+            return true;
+        }
+
+        function validatepwd() {
+            var password = document.getElementById('password').value;
+            if (password.trim() === "") {
+                pwdError.innerHTML = "Password can't be empty";
+                return false;
+            }
+            pwdError.innerHTML = "<i class='bx bxs-check-circle'></i>";
+            return true;
+        }
+
+        // Validating the submission
+        function validateAndSubmit() {
+            if (!validateEmail() || !validatepwd()) {
+                submitError.innerHTML = "Validation failed";
+                return false; // Prevent form submission
+            }
+            // If all validations passed, navigate to dashboard
+            window.location.href = "dashboard.html";
+            return true; 
+        }
+    </script>
 </body>
 </html>
