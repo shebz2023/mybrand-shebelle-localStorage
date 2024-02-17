@@ -36,6 +36,7 @@
 
 
         .container {
+            position: relative;
             width: 40%; 
             height: 90%;
             background-color: rgba(36, 36, 36, 0.5);
@@ -104,7 +105,16 @@
         #nameError,#emailError,#pwdError,#pwd2Error,#submitError{
             color:red;
             font-size: 12px;
+            position:absolute;
         }
+        #submitError{
+            top: 0px;
+        }
+        #submitError #danger{
+            font-size: 35px;
+            color:red;
+        }
+
         .container i{
             color:seagreen;
         }
@@ -164,7 +174,7 @@
             <span id="pwdError"></span>
             <input type="password" value="" placeholder="confirm password" id="password2" onkeyup="validate2pwd()">
             <span id="pwd2Error"></span>
-            <button type="button" onclick="validateAndSubmit()">Sign up</button>
+            <button type="button" onclick="validateAndSubmit(event)">Sign up</button>
             <span id="submitError"></span>
             <div class="additional-links">
                 <h7>Already have an account?</h7>
@@ -242,16 +252,45 @@
         }
 
         // Validating the submission
-        function validateAndSubmit() {
-            if (!validateName() || !validateEmail() || !validatepwd() || !validate2pwd()) {
-                submitError.innerHTML = "Account not created";
-                setTimeout(function(){ submitError.innerHTML = ''; }, 3000); 
-                return false; // Prevent form submission
-            }
-            // If all validations passed, navigate to dashboard
-            window.location.href = "dashboard.html";
-            return true; 
-        }
+        function validateAndSubmit(event) {
+    if (!validateName() || !validateEmail() || !validatepwd() || !validate2pwd()) {
+        submitError.innerHTML = "<i class='bx bx-error-alt' id='danger'></i>";
+        setTimeout(function(){ submitError.innerHTML = ''; }, 4000); 
+        return false; // Prevent form submission
+    }
+
+    event.preventDefault(); // Prevent the form from submitting
+
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+    // Retrieve existing users from local storage
+    var users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Check if the email is already registered
+    var existingUser = users.find(function(user) {
+        return user.email === email;
+    });
+
+    if (existingUser) {
+        alert('User already exists with this email.');
+        return false; // Prevent form submission
+    }
+
+    // Add the new user to the list
+    users.push({ email: email, password: password });
+
+    // Store updated list of users in local storage
+    localStorage.setItem('users', JSON.stringify(users));
+
+    // Clear the form fields
+    document.getElementById('email').value = '';
+    document.getElementById('password').value = '';
+
+    alert('User registered successfully.');
+    return true; 
+}
+
     </script>
 </body>
 </html>

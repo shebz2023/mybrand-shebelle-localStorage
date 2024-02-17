@@ -15,6 +15,7 @@
         padding: 0;
     }
     .container {
+        position: relative;
         max-width: 800px;
         margin: 20px auto;
         padding: 20px;
@@ -47,11 +48,31 @@
         color:seagreen;
     }
     #titleError,#contentError,#submitError{
+        position: absolute;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 13px;
         color:red;
     }
+    #titleError{
+        top: 20%;
+        left: 87%;
+    }
+    #contentError{
+        left: 40%;
+    }
+    #submitError{
+        top:17%;
+    }
+    #danger{
+        font-size: 30px;
+        color:red;
+    }
+    #cloud{
+        font-size: 30px;
+        color: seagreen;
+    }
     .btn {
+        display:block;
         padding: 10px 20px;
         background-color: #9cb071;
         color: #fff;
@@ -59,6 +80,7 @@
         border-radius: 4px;
         cursor: pointer;
         transition:  0.3s;
+        margin: auto;
     }
     .btn:hover {
         background-color: #7c8c5b;
@@ -171,6 +193,19 @@
         display:inline-block;
         border-radius:8px;
 }
+.footer button{
+        position:fixed;
+        background: #000000;
+        padding:10px 18px;
+        font-weight:bold;
+        color:white;
+        border-radius:8px;
+        cursor: pointer;
+}
+.footer button:hover{
+    transform: scale(1.05);
+    background-color: #232222;
+}
 .footer >:first-child{
     top:0px;
     left:20px;
@@ -193,6 +228,7 @@
         <span id="titleError"></span>
         <textarea id="blogContent" placeholder="Enter Blog Content" onkeyup="validateContent()"></textarea>
         <span id="contentError"></span>
+        <input type="file" name="Image" accept=".jpg, .jpeg, .png">
         <button type="button" onclick="validate()" class="btn">Add Blog</button>
         <span id="submitError"></span>
     </form>
@@ -238,7 +274,7 @@
 <footer>
     <div class="footer">
         <a href="blog.html">back to blogs</a>
-        <a href="index.html">logout</a> 
+        <button onclick="logout()">logout</a> 
     </div>
 </footer>
 
@@ -297,10 +333,56 @@
         if(!validatetitle() || !validateContent()){
            submitError.style.display='block';
            setTimeout(function(){submitError.style.display='none'},3000);
-           submitError.innerHTML="your BLOG is incomplete";
+           submitError.innerHTML="<i class='bx bx-error-alt' id='danger'></i>";
            return false;
-         }
-   }
+         }  saveToLocalStorage();
+        }
+    // Save the image as a Base64 string along with other form data
+function saveToLocalStorage() {
+    getImageBase64String(function(base64String) {
+        var blogData = {
+            title: document.getElementById('blogTitle').value,
+            content: document.getElementById('blogContent').value,
+            image: base64String
+        };
+        // Retrieve existing blog data from local storage
+        var existingBlogs = JSON.parse(localStorage.getItem('blogs')) || [];
+        // Add the new blog data to the array
+        existingBlogs.push(blogData);
+        // Save the updated array back to local storage
+        localStorage.setItem('blogs', JSON.stringify(existingBlogs));
+        document.querySelector(form).reset();
+    });
+}
+
+function getImageBase64String(callback) {
+    var input = document.querySelector('input[type="file"]');
+    var file = input.files[0];
+    var reader = new FileReader();
+    reader.onloadend = function() {
+        var base64String = reader.result;
+        callback(base64String);
+    };
+    reader.readAsDataURL(file);
+}
+// security
+window.onload = function() {
+    // Check if the user is logged in
+    var isLoggedIn = localStorage.getItem('isLoggedIn');
+
+    if (!isLoggedIn) {
+        // Redirect the user to the login page if not logged in
+        window.location.href = "LOGIN.HTML";
+    }
+}
+// logout 
+function logout() {
+    // Clear authentication state
+    localStorage.removeItem('isLoggedIn');
+
+    // Redirect to login page
+    window.location.href = "login.html";
+}
 
 </script>
   

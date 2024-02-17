@@ -182,51 +182,71 @@
         </div>
     </div>
     <script>
-        // Validation
-        var emailError = document.getElementById('emailError'); 
-        var pwdError = document.getElementById('pwdError');
-        var submitError = document.getElementById('submitError');
+    // Validation
+    var emailError = document.getElementById('emailError'); 
+    var pwdError = document.getElementById('pwdError');
+    var submitError = document.getElementById('submitError');
+
+    function validateEmail() {
+        var email = document.getElementById('email').value;
+        if (email.trim() === "") {
+            emailError.innerHTML = "Email is required";
+            setTimeout(function(){ emailError.innerHTML = ''; }, 3000);
+            return false;
+        }
+
+        if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+            emailError.innerHTML = 'Invalid email format';
+            setTimeout(function(){ emailError.innerHTML = ''; }, 3000);
+            return false;
+        }
+
+        emailError.innerHTML = "<i class='bx bxs-check-circle'></i>";
+        return true;
+    }
+
+    function validatepwd() {
+        var password = document.getElementById('password').value;
+        if (password.trim() === "") {
+            pwdError.innerHTML = "Password can't be empty";
+            setTimeout(function(){ pwdError.innerHTML = ''; }, 3000);
+            return false;
+        }
+        pwdError.innerHTML = "<i class='bx bxs-check-circle'></i>";
+        return true;
+    }
+
+    // Validating the submission
+    function validateAndSubmit() {
+        if (!validateEmail() || !validatepwd()) {
+            submitError.innerHTML = "Validation failed";
+            setTimeout(function(){ submitError.innerHTML = ''; }, 3000);
+            return false; // Prevent form submission
+        }
         
-        function validateEmail() {
-            var email = document.getElementById('email').value;
-            if (email.trim() === "") {
-                emailError.innerHTML = "Email is required";
-                setTimeout(function(){ emailError.innerHTML = ''; }, 3000);
-                return false;
-            }
+        var storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
 
-            if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-                emailError.innerHTML = 'Invalid email format';
-                setTimeout(function(){ emailError.innerHTML = ''; }, 3000);
-                return false;
-            }
+        var foundUser = storedUsers.find(function(user) {
+            return user.email === email && user.password === password;
+        });
 
-            emailError.innerHTML = "<i class='bx bxs-check-circle'></i>";
-            return true;
+        if (foundUser) {
+            // If user is found, proceed to login
+            handleLogin();
+        } else {
+            // If user is not found, show error message
+            submitError.innerHTML = "Invalid email or password";
+            setTimeout(function(){ submitError.innerHTML = ''; }, 3000);
         }
+    }
 
-        function validatepwd() {
-            var password = document.getElementById('password').value;
-            if (password.trim() === "") {
-                pwdError.innerHTML = "Password can't be empty";
-                setTimeout(function(){ pwdError.innerHTML = ''; }, 3000);
-                return false;
-            }
-            pwdError.innerHTML = "<i class='bx bxs-check-circle'></i>";
-            return true;
-        }
+    function handleLogin() {
+        localStorage.setItem('isLoggedIn', true);
+        window.location.href = "dashboard.html";
+    }
 
-        // Validating the submission
-        function validateAndSubmit() {
-            if (!validateEmail() || !validatepwd()) {
-                submitError.innerHTML = "Validation failed";
-                setTimeout(function(){ submitError.innerHTML = ''; }, 3000);
-                return false; // Prevent form submission
-            }
-            // If all validations passed, navigate to dashboard
-            window.location.href = "dashboard.html";
-            return true; 
-        }
     </script>
 </body>
 </html>
