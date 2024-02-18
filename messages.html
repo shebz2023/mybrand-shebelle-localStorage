@@ -20,30 +20,48 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(9, 9, 9, 0.1);
     }
+    span {
+      color: seagreen;
+    }
 
     .message-container {
+
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-start;
       margin-bottom: 20px;
     }
-    .message-container:hover{
+    .message:hover {
       transform: scale(1.03);
       border-radius: 8px;
-      transition:ease-in-out 0.3s;
-    } 
-    .profile-pic {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-right: 15px;
+      transition: ease-in-out 0.3s;
     }
-
+   
     .message {
-      flex: 1;
+      width: 100%;
       padding: 15px;
       background-color: #f9f9f9;
       border-radius: 8px;
+      margin-top: 10px;
       position: relative;
+      font-size: 14px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .message h1 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .message span {
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .message p {
+      margin: 0;
     }
 
     .message .reply-icon {
@@ -82,72 +100,43 @@
   <a href="status.html" class="link-button">status</a>
   <a href="index.html" class="link-button">HOME</a>
 
-  <div class="message-container">
-    <img src="assets/shebz.png" alt="Profile Picture" class="profile-pic">
-    <div class="message">
-      <span>bro your portfolio deserves 5 stars</span>
-      <i class="fas fa-reply reply-icon"></i>
-    </div>
-  </div>
-
-  <div class="message-container">
-    <img src="assets/kids-hula-hooping-outside.jpg" alt="Profile Picture" class="profile-pic">
-    <div class="message">
-      <span>what country is this????</span>
-      <i class="fas fa-reply reply-icon"></i>
-    </div>
-  </div>
-
-  <div class="message-container">
-    <img src="assets/hacker.png" alt="Profile Picture" class="profile-pic">
-    <div class="message">
-      <span>some articles are trash</span>
-      <i class="fas fa-reply reply-icon"></i>
-    </div>
-  </div>
-
-  <div class="message-container">
-    <img src="assets/shebz.png" alt="Profile Picture" class="profile-pic">
-    <div class="message">
-      <span>sending love from canada!!!!</span>
-      <i class="fas fa-reply reply-icon"></i>
-    </div>
-  </div>
-  <div class="message-container">
-    <img src="assets/hacker.png" alt="Profile Picture" class="profile-pic">
-    <div class="message">
-      <span>some articles are trash</span>
-      <i class="fas fa-reply reply-icon"></i>
-    </div>
-  </div>
-  <div class="message-container">
-    <img src="assets/hacker.png" alt="Profile Picture" class="profile-pic">
-    <div class="message">
-      <span>some articles are trash</span>
-      <i class="fas fa-reply reply-icon"></i>
-    </div>
-  </div>
-  <div class="message-container">
-    <img src="assets/hacker.png" alt="Profile Picture" class="profile-pic">
-    <div class="message">
-      <span>some articles are trash</span>
-      <i class="fas fa-reply reply-icon"></i>
-    </div>
-  </div>
-  <div class="message-container">
-    <img src="assets/hacker.png" alt="Profile Picture" class="profile-pic">
-    <div class="message">
-      <span>some articles are trash</span>
-      <i class="fas fa-reply reply-icon"></i>
-    </div>
-  </div>
-  <div class="message-container">
-    <img src="assets/hacker.png" alt="Profile Picture" class="profile-pic">
-    <div class="message">
-      <span>some articles are trash</span>
-      <i class="fas fa-reply reply-icon"></i>
-    </div>
+  <div id="message-container">
+    <!-- Messages-->
   </div>
 </div>
+
+<script>
+  // Retrieve messages from local storage
+  const messages = JSON.parse(localStorage.getItem('messages')) || [];
+
+  // Function to create message elements
+  const createMessageElement = message => {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message');
+
+    const nameHeader = document.createElement('h1');
+    nameHeader.textContent = message.name;
+    
+    const emailSpan = document.createElement('span');
+    emailSpan.textContent = message.email;
+
+    const messageParagraph = document.createElement('p');
+    messageParagraph.textContent = message.message;
+
+    messageDiv.appendChild(nameHeader);
+    messageDiv.appendChild(emailSpan);
+    messageDiv.appendChild(messageParagraph);
+
+    return messageDiv;
+  };
+
+  // Display messages
+  const messageContainer = document.getElementById('message-container');
+  messages.forEach(message => {
+    const messageElement = createMessageElement(message);
+    messageContainer.appendChild(messageElement);
+  });
+</script>
+
 </body>
 </html>

@@ -409,13 +409,10 @@ footer {
 ::-webkit-scrollbar {
     width: 8px;
   }
-
-  /* Track */
   ::-webkit-scrollbar-track {
     background: #1a1a1a;
   }
 
-  /* Handle */
   ::-webkit-scrollbar-thumb {
     background: #262626;
     border-radius: 4px;
@@ -585,9 +582,45 @@ footer {
 }
 
 #nameError,#email2Error,#msgError,#submitError{
+    position:absolute;
     color:red;
     font-size: 12px;
     font-family: cursive;
+}
+@media screen and (min-width:768px) {
+    #nameError{
+        top:15%;
+        left:90%;
+        }
+    #email2Error{
+        top:28%;
+        left:90%;
+    }
+    #msgError{
+        top:70%;
+        left:70%;
+    }
+    #submitError{
+        top:0px;
+    }
+}
+/* errors in mobile */
+@media screen and (max-width:768px) {
+#nameError{
+    top:45%;
+    left:73%;
+    }
+#email2Error{
+    top:53%;
+    left:75%;
+}
+#msgError{
+    top:85%;
+    left:50%;
+}
+#submitError{
+    top:40%;
+}
 }
 .contact-form i{
     color:seagreen;

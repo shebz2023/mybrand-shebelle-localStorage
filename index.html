@@ -269,8 +269,37 @@
             return false;
             
          } 
-       
+         sendmessage();
+       }
+        function sendmessage() {
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email2').value;
+        var message = document.getElementById('message').value;
+
+        // Create an object to represent the message
+        var messageObject = {
+            name: name,
+            email: email,
+            message: message
+        };
+
+        // Retrieve existing messages from localStorage 
+        var existingMessages = localStorage.getItem('messages');
+
+        // Convert existing messages to an array or initialize an empty array
+        var messagesArray = JSON.parse(existingMessages) || [];
+
+        // Add the new message object to the array
+        messagesArray.push(messageObject);
+
+        // Convert the array back to a JSON string 
+        localStorage.setItem('messages', JSON.stringify(messagesArray));
+        // clear
+        document.getElementById('name').value = '';
+        document.getElementById('email2').value = '';
+        document.getElementById('message').value = '';
     }
+
     
 </script>
 
