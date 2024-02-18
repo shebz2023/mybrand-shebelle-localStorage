@@ -21,16 +21,16 @@
       box-shadow: 0 0 10px rgba(9, 9, 9, 0.1);
     }
 
-    .message-container {
+    .status-container {
       display: flex;
       align-items: center;
       margin-bottom: 20px;
     }
-    .message-container:hover{
+    .status-container:hover{
       transform: scale(1.01);
       color:red;
     } 
-    .message-container i:hover{
+    .status-container i:hover{
       transform: scale(2);
       color:red;
     } 
@@ -41,7 +41,7 @@
       margin-right: 15px;
     }
 
-    .message {
+    .status {
       flex: 1;
       padding: 15px;
       background-color: #f9f9f9;
@@ -49,7 +49,7 @@
       position: relative;
     }
 
-    .message .reply-icon {
+    .status .reply-icon {
       position: absolute;
       top: 10px;
       right: 10px;
@@ -84,49 +84,49 @@
   <a href="status.html" class="link-button">status</a>
   <a href="index.html" class="link-button">HOME</a>
 
-  <div class="message-container">
-    <img src="assets/kids-hula-hooping-outside.jpg" alt="Profile Picture" class="profile-pic">
-    <div class="message">
-      <span>Lorem ipsum dolor, sit amet consectetur adipisicing.</span>
-      <i class="fa-solid fa-trash"></i>
-    </div>
-  </div>
+  <div id="statusList"></div>
 
-  <div class="message-container">
-    <img src="assets/hacker.png" alt="Profile Picture" class="profile-pic">
-    <div class="message">
-      <span>Lorem, ipsum dolor sit amet consectetur adipisicing.</span>
-      <i class="fa-solid fa-trash"></i>
-    </div>
-  </div>
-  <div class="message-container">
-    <img src="assets/kids-hula-hooping-outside.jpg" alt="Profile Picture" class="profile-pic">
-    <div class="message">
-      <span>Lorem ipsum dolor sit amet consectetur adipisicing.</span>
-      <i class="fa-solid fa-trash"></i>
-    </div>
-  </div>
-  <div class="message-container">
-    <img src="assets/kids-hula-hooping-outside.jpg" alt="Profile Picture" class="profile-pic">
-    <div class="message">
-      <span>Lorem ipsum dolor sit amet consectetur adipisicing.</span>
-      <i class="fa-solid fa-trash"></i>
-    </div>
-  </div>
-  <div class="message-container">
-    <img src="assets/kids-hula-hooping-outside.jpg" alt="Profile Picture" class="profile-pic">
-    <div class="message">
-      <span>Lorem ipsum dolor sit amet, consectetur adipisicing.</span>
-      <i class="fa-solid fa-trash"></i>
-    </div>
-  </div>
-  <div class="message-container">
-    <img src="assets/kids-hula-hooping-outside.jpg" alt="Profile Picture" class="profile-pic">
-    <div class="message">
-      <span>Lorem ipsum dolor sit amet consectetur adipisicing.</span>
-      <i class="fa-solid fa-trash"></i>
-    </div>
-  </div>
 </div>
+
+<script>
+  // Retrieve blogs from local storage
+  const blogs = JSON.parse(localStorage.getItem('blogs'));
+  // Function to create status containers
+  function createstatusContainer(blog) {
+    const statusContainer = document.createElement('div');
+    statusContainer.classList.add('status-container');
+
+    const profilePic = document.createElement('img');
+    profilePic.src = blog.image;
+    profilePic.alt = 'Profile Picture';
+    profilePic.classList.add('profile-pic');
+
+    const status = document.createElement('div');
+    status.classList.add('status');
+
+    const span = document.createElement('span');
+    span.textContent = blog.title + ' ' + blog.content;
+
+    const deleteIcon = document.createElement('i');
+    deleteIcon.classList.add('fa-solid', 'fa-trash');
+
+    status.appendChild(span);
+    status.appendChild(deleteIcon);
+
+    statusContainer.appendChild(profilePic);
+    statusContainer.appendChild(status);
+
+    return statusContainer;
+  }
+
+  // Display blogs
+  const statusList = document.getElementById('statusList');
+  if (blogs) {
+    blogs.forEach(blog => {
+      const statusContainer = createstatusContainer(blog);
+      statusList.appendChild(statusContainer);
+    });
+  }
+</script>
 </body>
 </html>

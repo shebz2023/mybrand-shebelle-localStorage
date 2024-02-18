@@ -238,16 +238,15 @@
         <div class="blog-post">
             <h3>MY FIRST BLOG</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.</p>
-            <button class="edit-btn">Edit</button>
+            <button class="update-btn">Update</button>
             <button class="delete-btn">Delete</button>
-            <button class="update-btn">Update</button> 
+             
         </div>
         <div class="blog-post">
             <h3>MY SECOND BLOG</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.</p>
-            <button class="edit-btn">Edit</button>
-            <button class="delete-btn">Delete</button>
             <button class="update-btn">Update</button> 
+            <button class="delete-btn">Delete</button>      
         </div>
     </div>
 
@@ -337,34 +336,47 @@
            return false;
          }  saveToLocalStorage();
         }
-    // Save the image as a Base64 string along with other form data
-function saveToLocalStorage() {
-    getImageBase64String(function(base64String) {
-        var blogData = {
-            title: document.getElementById('blogTitle').value,
-            content: document.getElementById('blogContent').value,
-            image: base64String
-        };
-        // Retrieve existing blog data from local storage
-        var existingBlogs = JSON.parse(localStorage.getItem('blogs')) || [];
-        // Add the new blog data to the array
-        existingBlogs.push(blogData);
-        // Save the updated array back to local storage
-        localStorage.setItem('blogs', JSON.stringify(existingBlogs));
-        document.querySelector(form).reset();
-    });
-}
+       
+        function saveToLocalStorage() {
+            var title = document.getElementById('blogTitle').value.trim();
+            var content = document.getElementById('blogContent').value.trim();
+            getImageBase64String(function(base64String) {
+                if (title && content && base64String) {
+                    var blogData = {
+                        title: title,
+                        content: content,
+                        image: base64String
+                    };
+                    // Retrieve existing blog data from local storage
+                    var existingBlogs = JSON.parse(localStorage.getItem('blogs')) || [];
+                    // Add the new blog data to the array
+                    existingBlogs.push(blogData);
+                    // Save the updated array back to local storage
+                    localStorage.setItem('blogs', JSON.stringify(existingBlogs));
+                    // Reset form fields
+                    document.querySelector('form').reset();
+                    alert("Blog saved successfully!");
+                } else {
+                    alert("Please fill in all fields including selecting an image.");
+                }
+            });
+        }
 
-function getImageBase64String(callback) {
-    var input = document.querySelector('input[type="file"]');
-    var file = input.files[0];
-    var reader = new FileReader();
-    reader.onloadend = function() {
-        var base64String = reader.result;
-        callback(base64String);
-    };
-    reader.readAsDataURL(file);
-}
+        function getImageBase64String(callback) {
+            var input = document.querySelector('input[type="file"]');
+            if (input.files.length === 0) {
+                callback(null);
+                return;
+            }
+            var file = input.files[0];
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                var base64String = reader.result;
+                callback(base64String);
+            };
+            reader.readAsDataURL(file);
+        }
+  
 // security
 window.onload = function() {
     // Check if the user is logged in
