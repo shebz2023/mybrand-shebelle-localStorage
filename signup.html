@@ -290,6 +290,19 @@
     alert('User registered successfully.');
     return true; 
 }
+// if the user is already logged in ,never see this page
+window.onload = function() {
+    // Check if the user is logged in
+    var userIsLoggedIn = localStorage.getItem('userIsLoggedIn');
+    var adminIsLoggedIn = localStorage.getItem('adminIsLoggedIn');
+
+    if (userIsLoggedIn) {
+        // Redirect the user to the user dashboard if logged in
+        window.location.href = "userdashboard.html";
+    } else if (adminIsLoggedIn) {
+        // Redirect the admin to the admin dashboard if logged in
+        window.location.href = "dashboard.html";
+    }}
 
     </script>
 </body>

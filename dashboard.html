@@ -85,69 +85,6 @@
     .btn:hover {
         background-color: #7c8c5b;
     }
-    #blogContainer{
-        display:flex;
-        width: 100%;
-        overflow-x: scroll; 
-        white-space: nowrap; 
-    }
-    /* scroll bar */
-    #blogContainer::-webkit-scrollbar {
-    height: 8px;
-    }
-    #blogContainer::-webkit-scrollbar-thumb {
-    background-color: #514e4e;
-    border-radius: 5px
-    }
-    #blogContainer::-webkit-scrollbar-track {
-    background-color: #000000;
-}
-
-    .blog-post {
-        background-color: #fff;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(7, 11, 80, 0.1);
-        position: relative;
-    }
-    .blog-post h3 {
-        color: #333;
-        margin-top: 0;
-    }
-    .blog-post p {
-        color: #666;
-    }
-     .delete-btn{
-        
-        top: 10px;
-        right: 10px;
-        background-color: #dc3535;
-        color: #fff;
-        border: none;
-        padding: 6px 12px;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    .edit-btn, .update-btn {
-        
-        top: 10px;
-        right: 10px;
-        background-color: #1a1a1a;
-        color: #fff;
-        border: none;
-        padding: 6px 12px;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s;}
-     .edit-btn:hover, .update-btn:hover {
-        background-color: #4a4848;
-    }
-    .delete-btn:hover{
-        background-color: #6a0909;
-    }
-    
     .notifications, .messages, .status {
         background-color: #262626;
         padding: 20px;
@@ -232,24 +169,6 @@
         <button type="button" onclick="validate()" class="btn">Add Blog</button>
         <span id="submitError"></span>
     </form>
-    <!-- Container to display existing blog posts -->
-    <div id="blogContainer">
-        <!-- Sample Blog Posts -->
-        <div class="blog-post">
-            <h3>MY FIRST BLOG</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.</p>
-            <button class="update-btn">Update</button>
-            <button class="delete-btn">Delete</button>
-             
-        </div>
-        <div class="blog-post">
-            <h3>MY SECOND BLOG</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.</p>
-            <button class="update-btn">Update</button> 
-            <button class="delete-btn">Delete</button>      
-        </div>
-    </div>
-
     <!-- Notifications -->
     <div class="notifications" id="notifications">
         <h2><img src="assets/Alarm.png" alt="Notification Icon"> Notifications</h2>

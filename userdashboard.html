@@ -54,7 +54,7 @@
         color:red;
     }
     #titleError{
-        top: 20%;
+        top:52%;
         left: 87%;
     }
     #contentError{
@@ -96,6 +96,53 @@
         height: auto; 
         display: block; 
     }
+
+    .blog-post {
+        position: relative;
+        max-height: 200px;
+        overflow:hidden;
+        background-color: #1a1a1a;
+        color: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+
+    .blog-post img {
+        width: 100%;
+        max-height: 50px;
+        height: auto;
+        border-radius: 8px 8px 0 0;
+        object-fit: cover;
+    }
+
+    .blog-post-content {
+        margin-top: 20px;
+    }
+
+    .blog-post-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .blog-post-icons {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .blog-post-icons i {
+        font-size: 50px;
+        margin-left: 10px;
+        cursor: pointer;
+        color: #9cb071;
+    }
+
+    .blog-post-icons i:hover {
+        color: #7c8c5b;
+    }
+
     .footer a{
         position: fixed;
         background: #000000;
@@ -105,8 +152,9 @@
         color:white;
         display:inline-block;
         border-radius:8px;
-}
-.footer button{
+    }
+
+    .footer button{
         position:fixed;
         background: #000000;
         padding:10px 18px;
@@ -114,19 +162,22 @@
         color:white;
         border-radius:8px;
         cursor: pointer;
-}
-.footer button:hover{
-    transform: scale(1.05);
-    background-color: #232222;
-}
-.footer >:first-child{
-    top:0px;
-    left:20px;
-}
-.footer >:nth-child(2) {
-    bottom: 20px;
-    right: 20px;
-}
+    }
+
+    .footer button:hover {
+        transform: scale(1.05);
+        background-color: #232222;
+    }
+
+    .footer >:first-child {
+        top: 0px;
+        left: 20px;
+    }
+
+    .footer >:nth-child(2) {
+        bottom: 20px;
+        right: 20px;
+    }
 </style>
 </head>
 <body>
@@ -145,11 +196,26 @@
         <button type="button" onclick="validate()" class="btn">Add Blog</button>
         <span id="submitError"></span>
     </form>
+    <div class="blog-posts">
+    <!-- <h1>MY BROGS</h1>
+    <div class="blog-post">
+        <img src="assets/planes.png" alt="PLANES">
+        <h3 class="blog-post-title">PLANES</h3>
+        <div class="blog-post-content">
+            <p>Suspendisse lectus tod, dolor. Lorem ipsum dolor, sit amet consectetur adipisicing eit. Minima, cumquerchitec</p>
+            <div class="blog-post-icons">
+                <i class="bx bx-edit"></i>
+                <i class="bx bx-trash"></i>
+            </div>
+        </div>
+        <a href="single.html" class="read-more-link">Read More</a>
+    </div> -->
+    </div>
 </div>
 <footer>
     <div class="footer">
         <a href="blog.html">back to blogs</a>
-        <button onclick="logout()">logout</a> 
+        <button onclick="logout()">logout</button> 
     </div>
 </footer>
 
@@ -238,6 +304,80 @@
             };
             reader.readAsDataURL(file);
         }
+    // Retrieve blogs from local storage
+    const blogs = JSON.parse(localStorage.getItem('blogs'));
+        // console.log('blogs');
+
+    // Function to create blog posts
+    function createBlogPost(blog) {
+    const blogPost = document.createElement('div');
+    blogPost.classList.add('blog-post');
+
+    const image = document.createElement('img');
+    image.src = blog.image;
+    image.alt = 'Blog Image';
+    image.classList.add('blog-image');
+
+    const title = document.createElement('h3');
+    title.textContent = blog.title;
+    title.classList.add('blog-title');
+
+    const content = document.createElement('p');
+    content.textContent = blog.content;
+    content.classList.add('blog-content');
+
+    const iconsDiv = document.createElement('div');
+    iconsDiv.classList.add('blog-post-icons');
+
+    const editIcon = document.createElement('i');
+    editIcon.classList.add('bx', 'bx-edit');
+    editIcon.addEventListener('click', function() {
+        // Copy title and content to input fields for editing
+        document.getElementById('blogTitle').value = blog.title;
+        document.getElementById('blogContent').value = blog.content;
+    });
+
+    const deleteIcon = document.createElement('i');
+    deleteIcon.classList.add('bx', 'bx-trash');
+    deleteIcon.addEventListener('click', function() {
+        // Delete the blog post from local storage
+        deleteBlog(blog);
+        // Remove the blog post from the UI
+        blogPost.remove();
+    });
+
+    iconsDiv.appendChild(editIcon);
+    iconsDiv.appendChild(deleteIcon);
+
+    const readMoreLink = document.createElement('a');
+    readMoreLink.href = 'single.html'; 
+    readMoreLink.textContent = 'Read More';
+    readMoreLink.classList.add('read-more-link');
+
+    blogPost.appendChild(image);
+    blogPost.appendChild(title);
+    blogPost.appendChild(content);
+    blogPost.appendChild(iconsDiv); 
+    blogPost.appendChild(readMoreLink);
+
+    return blogPost;
+}
+// function to delete blog
+function deleteBlog(blog) {
+    const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+    const updatedBlogs = blogs.filter(item => item.title !== blog.title || item.content !== blog.content);
+    localStorage.setItem('blogs', JSON.stringify(updatedBlogs));
+}
+
+    // Display blogs
+    const blogPostsContainer = document.querySelector('.blog-posts');
+    if (blogs) {
+        blogs.forEach(blog => {
+            const blogPost = createBlogPost(blog);
+            blogPostsContainer.appendChild(blogPost);
+        });
+    }
+ 
   
 // security
 window.onload = function() {
