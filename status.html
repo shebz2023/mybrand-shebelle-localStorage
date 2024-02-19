@@ -33,6 +33,7 @@
     .status-container i:hover{
       transform: scale(2);
       color:red;
+      cursor:pointer;
     } 
     .profile-pic {
       width: 40px;
@@ -89,10 +90,11 @@
 </div>
 
 <script>
-  // Retrieve blogs from local storage
-  const blogs = JSON.parse(localStorage.getItem('blogs'));
-  // Function to create status containers
-  function createstatusContainer(blog) {
+ // Retrieve blogs from local storage
+const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+
+// Function to create status containers
+function createstatusContainer(blog, index) {
     const statusContainer = document.createElement('div');
     statusContainer.classList.add('status-container');
 
@@ -109,7 +111,15 @@
 
     const deleteIcon = document.createElement('i');
     deleteIcon.classList.add('fa-solid', 'fa-trash');
-
+    // Attach click event to delete icon
+    deleteIcon.addEventListener('click', function() {
+        // Remove the blog from the array
+        blogs.splice(index, 1);
+        // Save the updated array back to local storage
+        localStorage.setItem('blogs', JSON.stringify(blogs));
+        // Remove the status container from the DOM
+        statusContainer.remove();
+    });
     status.appendChild(span);
     status.appendChild(deleteIcon);
 
@@ -117,16 +127,17 @@
     statusContainer.appendChild(status);
 
     return statusContainer;
-  }
+}
 
-  // Display blogs
-  const statusList = document.getElementById('statusList');
-  if (blogs) {
-    blogs.forEach(blog => {
-      const statusContainer = createstatusContainer(blog);
-      statusList.appendChild(statusContainer);
+// Display blogs
+const statusList = document.getElementById('statusList');
+if (blogs) {
+    blogs.forEach((blog, index) => {
+        const statusContainer = createstatusContainer(blog, index);
+        statusList.appendChild(statusContainer);
     });
-  }
+}
+
 </script>
 </body>
 </html>

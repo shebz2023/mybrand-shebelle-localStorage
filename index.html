@@ -103,7 +103,7 @@
         <a href="blog.html">ALL BLOGS>></a>
         <h2 class="blog-header">BLOGS</h2>
         <div class="blog-posts">
-            <div class="blog-post">
+            <!-- <div class="blog-post">
                 <img src="assets/hacker.png" alt="Blog Image 1" class="blog-image">
                 <h3 class="blog-title">hacker</h3>
                 <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
@@ -126,7 +126,7 @@
                 <h3 class="blog-title">FOODS</h3>
                 <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
                 <a href="single.html" class="read-more-link">Read More</a>
-            </div>    
+            </div>     -->
         </div>
         <div class="all-rights-reserved">
             All Rights Reserved 2024
@@ -208,6 +208,50 @@
             return false;
         }
     }
+// retrieving blogs from local storage
+const blogs = JSON.parse(localStorage.getItem('blogs'));
+
+    // Function to create blog posts
+    function createBlogPost(blog) {
+        const blogPost = document.createElement('div');
+        blogPost.classList.add('blog-post');
+
+        const image = document.createElement('img');
+        image.src = blog.image;
+        image.alt = 'Blog Image';
+        image.classList.add('blog-image');
+
+        const title = document.createElement('h3');
+        title.textContent = blog.title;
+        title.classList.add('blog-title');
+
+        const content = document.createElement('p');
+        content.textContent = blog.content;
+        content.classList.add('blog-content');
+
+        const readMoreLink = document.createElement('a');
+        readMoreLink.href = 'single.html'; 
+        readMoreLink.textContent = 'Read More';
+        readMoreLink.classList.add('read-more-link');
+
+        blogPost.appendChild(image);
+        blogPost.appendChild(title);
+        blogPost.appendChild(content);
+        blogPost.appendChild(readMoreLink);
+
+        return blogPost;
+    }
+
+    // Display blogs
+    const blogPostsContainer = document.querySelector('.blog-posts');
+    if (blogs) {
+        blogs.forEach(blog => {
+            const blogPost = createBlogPost(blog);
+            blogPostsContainer.appendChild(blogPost);
+        });
+    }
+
+
     // validating the contact form
     var nameError =document.getElementById('nameError');
     var email2Error = document.getElementById('email2Error'); 
