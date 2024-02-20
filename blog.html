@@ -177,12 +177,14 @@ nav a:hover span{
         }
 
         .blog-post {
+            position: relative;
             width: calc(33.33% - 20px); 
             margin-bottom: 20px; 
             overflow: hidden;
             background-color: #1a1a1a;
             color: #fff;
             border-radius: 8px;
+            max-height: 300px;
         }
 
         .blog-image {
@@ -204,9 +206,12 @@ nav a:hover span{
         }
 
         .read-more-link {
-            color:#9cb071;
+            position:absolute;
+            top:50%;
+            font-size: 25px;
+            color:#404a2c;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: bolder;
             display: inline-block;
         }
 

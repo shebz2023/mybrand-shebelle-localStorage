@@ -43,13 +43,21 @@
     }
 
     .status {
+      position:relative;
+      max-height: 50px;
       flex: 1;
       padding: 15px;
       background-color: #f9f9f9;
       border-radius: 8px;
       position: relative;
+      overflow: hidden;
     }
 
+    .status i{
+      top:0px;
+      right:0px;
+      position:absolute;
+    }
     .status .reply-icon {
       position: absolute;
       top: 10px;
@@ -81,8 +89,8 @@
 
 <div class="container">
   <a href="dashboard.html" class="back-button">DASHBOARD</a>
-  <a href="notifications.html" class="link-button">notifications</a>
-  <a href="status.html" class="link-button">status</a>
+  <a href="messages.html" class="link-button">Messages</a>
+  <a href="status.html" class="link-button">Status</a>
   <a href="index.html" class="link-button">HOME</a>
 
   <div id="statusList"></div>

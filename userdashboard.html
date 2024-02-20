@@ -178,6 +178,18 @@
         bottom: 20px;
         right: 20px;
     }
+    #updateButton {
+    position: absolute;
+    top:32%;
+    right:10%;
+    background-color: #1a1a1a;
+    border:2px solid #9cb071;
+}
+#updateButton:hover {
+    border:2px solid #6f7e4e;
+    background-color: #383535;
+}
+
 </style>
 </head>
 <body>
@@ -307,9 +319,9 @@
     // Retrieve blogs from local storage
     const blogs = JSON.parse(localStorage.getItem('blogs'));
         // console.log('blogs');
-
+  
     // Function to create blog posts
-    function createBlogPost(blog) {
+function createBlogPost(blog, index) {
     const blogPost = document.createElement('div');
     blogPost.classList.add('blog-post');
 
@@ -332,9 +344,9 @@
     const editIcon = document.createElement('i');
     editIcon.classList.add('bx', 'bx-edit');
     editIcon.addEventListener('click', function() {
-        // Copy title and content to input fields for editing
-        document.getElementById('blogTitle').value = blog.title;
-        document.getElementById('blogContent').value = blog.content;
+        // Pass the index of the blog post when edit icon is clicked
+        letsupdate(index);
+    
     });
 
     const deleteIcon = document.createElement('i');
@@ -362,21 +374,75 @@
 
     return blogPost;
 }
+
+//    UPDATING FUNCTION
+
+
+function letsupdate(index) {
+    // Get the blog data from the specified index
+    const blog = blogs[index];
+    
+    // Populate the form fields with the blog data
+    document.getElementById('blogTitle').value = blog.title;
+    document.getElementById('blogContent').value = blog.content;
+    
+    // Create a button dynamically
+    const updateButton = document.createElement('button');
+    
+        updateButton.textContent = 'Update';
+        updateButton.classList.add('btn');
+        updateButton.id = "updateButton";
+    
+    // Add an event listener to the update button
+    updateButton.addEventListener('click', function() {
+        // Update the blog data with the new values from the form fields
+        blog.title = document.getElementById('blogTitle').value;
+        blog.content = document.getElementById('blogContent').value;
+        
+        // Update the image if a new file is selected
+        const input = document.querySelector('input[type="file"]');
+        if (input.files.length > 0) {
+            getImageBase64String(function(base64String) {
+                if (base64String) {
+                    blog.image = base64String;
+                    // Save the updated blog data to local storage
+                    localStorage.setItem('blogs', JSON.stringify(blogs));
+                } else {
+                    alert('Please select an image.');
+                    return;
+                } 
+            });
+        } else {
+            // Save the updated blog data to local storage
+            localStorage.setItem('blogs', JSON.stringify(blogs));
+        }
+
+        // Hide the update button
+        updateButton.style.display = 'none';
+        
+        // Show an alert to indicate that the blog has been updated
+        alert('Blog updated!');
+    });
+    
+    // Append the update button to the container
+    document.querySelector('.container').appendChild(updateButton);
+}
+
+// Display blogs
+const blogPostsContainer = document.querySelector('.blog-posts');
+if (blogs) {
+    blogs.forEach((blog, index) => {
+        const blogPost = createBlogPost(blog, index); // Pass the index
+        blogPostsContainer.appendChild(blogPost);
+    });
+}
+
 // function to delete blog
 function deleteBlog(blog) {
     const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
     const updatedBlogs = blogs.filter(item => item.title !== blog.title || item.content !== blog.content);
     localStorage.setItem('blogs', JSON.stringify(updatedBlogs));
 }
-
-    // Display blogs
-    const blogPostsContainer = document.querySelector('.blog-posts');
-    if (blogs) {
-        blogs.forEach(blog => {
-            const blogPost = createBlogPost(blog);
-            blogPostsContainer.appendChild(blogPost);
-        });
-    }
  
   
 // security

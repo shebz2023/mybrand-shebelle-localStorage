@@ -192,7 +192,7 @@ nav a:hover span{
         color: red;
         font-size: 12px;
     }
-    /*  the left container */
+    /*  right container */
         .blog-container {
             flex-basis: 30%;
             padding: 20px;
@@ -223,7 +223,9 @@ nav a:hover span{
         }
 
         .blog-post {
+            position: relative;
             width: calc(90% - 5px); 
+            max-height: 300px;
             margin-bottom: 20px; 
             overflow: hidden;
             background-color: #1a1a1a;
@@ -250,7 +252,11 @@ nav a:hover span{
         }
 
         .read-more-link {
-            color: #9cb071;
+            position: absolute;
+            top:50%;
+            font-weight: bolder;
+            font-size: 25px;
+            color: #55623a;
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
@@ -260,13 +266,13 @@ nav a:hover span{
             text-decoration: underline;
         }
 
-        .viewmore{
+        .blog-container a{
             margin-top: 20px;
             text-align: center;
             color: #9cb071;
             cursor:pointer;
         }
-        .viewmore:hover{
+        .blog-container a:hover{
             transform: scale(1.1);
         }
         /* Media Query for Small Devices */
@@ -301,27 +307,9 @@ nav a:hover span{
     </div>
     <div class="wrapper">
         <div class="one-blog">
-            <img src="assets/hacker.png" class="title"alt="blog picture">
-            <h1>soccer</h1>
-         <p>In est fugiat elit sint magna reprehenderit culpa veniam incididunt. 
-            Dolore quis sit deserunt qui sit enim. Cupidatat aliquip magna irure
-             laboris aliquip. Lorem ipsum dolor sit amet consectetur adipisi
-             cing elit. A omnis dolores architecto aliquam fugiat dicta quis a
-             dipisci rerum laboriosam! Expedita voluptatum dolorum, adipisci 
-             fugiat perferendis tempore! Ullam dicta aut porro deleniti corpor
-             is repellendus temporibus. Magni quidem itaque quae omnis, tempor
-             a numquam obcaecati quos nesciunt esse? Provident, nihil itaque! Consequa
-             tur asperiores esse quidem possimus, voluptatum numquam odio molliti
-             a vel sed minima sequi tempore alias laborum reprehenderit et repell
-             endus illum accusamus rem libero ipsum nulla dolores in ipsam! Qui
-             squam reprehenderit omnis, cum corporis fugiat molestias nesciunt ne
-             mo dolorem odit sint consectetur labore, quo doloremque? Pariatur, u
-             llam! Nisi ipsum ab odit, pariatur non fugiat ratione accusamus, atqu
-             e, obcaecati harum vero nihil! Distinctio quam, culpa, numquam at i
-              repudiandae earum pariatur ratione provident inventore magni i
 
-              mpedit quas rem?
-            </p>
+            <!-- content of one blog  --> 
+
             5<i class="far fa-thumbs-up"></i>
             2<i class="far fa-thumbs-down"></i>
          <div class="comment-container">
@@ -338,19 +326,6 @@ nav a:hover span{
             </div>
           </div>
         
-          <div class="comment-container">
-            <div class="commenter">
-              <img class="profile-pic" src="assets/coding.jpg" alt="Profile Picture">
-              <span class="commenter-name">ange250</span>
-            </div>
-            <div class="comment">
-              <span class="comment-like"><i class="far fa-thumbs-up"></i> 15</span>
-              <span class="comment-dislike"><i class="far fa-thumbs-down"></i> 3</span>
-              <p>
-               how can you not score that!
-              </p>
-            </div>
-          </div>
         
           <div class="comment-container">
             <div class="commenter">
@@ -366,66 +341,172 @@ nav a:hover span{
             </div>
           </div>
         
-          <form class="comment-form">
-            <h3>add a Comment</h3>
-            <textarea placeholder="leave a comment" id="comment" ></textarea>
-            <button type="button" onclick="validate()">comment</button>
-            <span id="error"></span>
-          </form>
+         <!-- comment section -->
+
+        
         </div>
         <!-- side part of page -->
     <div class="blog-container">
         <h2 class="blog-header">BLOGS</h2>
-        <div class="blog-posts">
-            <div class="blog-post">
-                <img src="assets/hacker.png" alt="Blog Image 1" class="blog-image">
-                <h3 class="blog-title">hacker</h3>
-                <p class="blog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
-                <a href="#" class="read-more-link">Read More</a>
+        
+            <div class="blog-posts">
+        
+            <!-- blogs  -->
+        
             </div>
-            <div class="blog-post">
-                <img src="assets/soccer.png" alt="Blog Image 2" class="blog-image">
-                <h3 class="blog-title">soccer</h3>
-                <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-                <a href="#" class="read-more-link">Read More</a>
-            </div>
-            <div class="blog-post">
-                <img src="assets/planes.png" alt="PLANES" class="blog-image">
-                <h3 class="blog-title">PLANES</h3>
-                <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-                <a href="#" class="read-more-link">Read More</a>
-            </div>
-            <div class="blog-post">
-                <img src="assets/image 4.png" alt="food" class="blog-image">
-                <h3 class="blog-title">FOODS</h3>
-                <p class="blog-content">Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
-                <a href="#" class="read-more-link">Read More</a>
-            </div>    
-        </div>
-        <div class="viewmore">
-            view more
-        </div>
+
+        <a href="blog.html">viewmore</a>
     </div>
 </div>
-    <script>
-        // navbar
-        function toggleMenu() {
-            var nav = document.querySelector('nav');
-            var menuIcon = document.querySelector('.menu-icon');
-            nav.classList.toggle('active');
-            menuIcon.classList.toggle('active');
-        }
-        // validating the comment section
-   function validate(){
-    var error=document.getElementById('error');
-    var comment=document.getElementById('comment').value;
-    if(comment.trim()===""){
-        error.innerHTML="you cant leave a blank comment";
-        return false;
+<script>
+    // navbar
+    function toggleMenu() {
+        var nav = document.querySelector('nav');
+        var menuIcon = document.querySelector('.menu-icon');
+        nav.classList.toggle('active');
+        menuIcon.classList.toggle('active');
     }
-    error.innerHTML="<i class='bx bxs-check-circle'></i>"
-    return true;
+
+    // validating the comment section
+    function validate(){
+        var error = document.getElementById('error');
+        var comment = document.getElementById('comment').value;
+        if(comment.trim() === ""){
+            error.innerHTML = "you can't leave a blank comment";
+            return false;
+        }
+        error.innerHTML = "<i class='bx bxs-check-circle'></i>";
+        return true;
+    }
+
+    // Retrieving blogs from localstorage
+    var blogs = JSON.parse(localStorage.getItem('blogs'));
+
+   // generate leftpart
+ function leftpart(index) {
+    const blog = blogs[index]; 
+    
+    const image = document.createElement('img');
+    image.src = blog.image;
+    image.alt = 'blog picture';
+    image.classList.add('title');
+
+    const title = document.createElement('h1');
+    title.textContent = blog.title;
+
+    const content = document.createElement('p');
+    content.textContent = blog.content;
+
+    const leftContainer = document.querySelector('.one-blog');
+    leftContainer.innerHTML = ''; // Clear existing content before putting
+    leftContainer.appendChild(image);
+    leftContainer.appendChild(title);
+    leftContainer.appendChild(content);
 }
+
+//    make the comment section
+
+// keeping comment to local storage
+
+ 
+//  <form class="comment-form">
+//             <h3>add a Comment</h3>
+//             <textarea placeholder="leave a comment" id="comment" ></textarea>
+//             <button type="button" onclick="validate()">comment</button>
+//             <span id="error"></span>
+//           </form>
+
+    // dynamically make the blogs for right side
+    if (blogs && blogs.length > 0) {
+        rightpart();
+    }
+  // Event listener for "Read More" link clicks
+  document.querySelectorAll('.read-more-link').forEach((link, index) => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default  behavior
+        leftpart(index); 
+    });
+});
+
+
+    // creating right part
+
+    function createrightpart(blog) {
+        const blogPost = document.createElement('div');
+        blogPost.classList.add('blog-post');
+
+        const image = document.createElement('img');
+        image.src = blog.image;
+        image.alt = 'Blog Image';
+        image.classList.add('blog-image');
+
+        const title = document.createElement('h3');
+        title.textContent = blog.title;
+        title.classList.add('blog-title');
+
+        const content = document.createElement('p');
+        content.textContent = blog.content;
+        content.classList.add('blog-content');
+
+        const readMoreLink = document.createElement('a');
+        readMoreLink.href = 'single.html'; 
+        readMoreLink.textContent = 'Read More';
+        readMoreLink.classList.add('read-more-link');
+
+        blogPost.appendChild(image);
+        blogPost.appendChild(title);
+        blogPost.appendChild(content);
+        blogPost.appendChild(readMoreLink);
+
+        return blogPost;
+    }
+
+    function rightpart() {
+        var blogPostsContainer = document.querySelector('.blog-posts');
+        blogs.forEach(blog => {
+            const blogPost = createrightpart(blog);
+            blogPostsContainer.appendChild(blogPost);
+        });
+    }
+
+    // nav bar 
+     // if the user is logged in then change the signintext to dashboardtext
+
+
+     window.onload = function() {
+    // Check if the user is logged in
+    var userIsLoggedIn = localStorage.getItem('userIsLoggedIn');
+    var adminIsLoggedIn = localStorage.getItem('adminIsLoggedIn');
+
+    // Get the nav element
+    var nav = document.querySelector('nav');
+
+    if (userIsLoggedIn || adminIsLoggedIn) {
+        // Create a new anchor element
+        var anchor = document.createElement('a');
+        
+        // Remove the "Sign In" anchor
+        var signInAnchor = document.querySelector('nav a[href="LOGIN.HTML"]');
+       
+        if (signInAnchor) {
+            nav.removeChild(signInAnchor);
+        }
+
+        // Set the href attribute and text based on whether it is admin or user login
+        if (userIsLoggedIn) {
+            anchor.href = 'userdashboard.html';
+        } else if (adminIsLoggedIn) {
+            anchor.href = 'dashboard.html';
+        }
+        anchor.innerText = 'Dashboard';
+
+        // Append the anchor element to the nav
+        nav.appendChild(anchor);
+    }
+};
+
+    
+
         // importing icons 
         src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
     </script>
