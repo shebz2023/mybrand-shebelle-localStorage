@@ -229,15 +229,15 @@ const blogs = JSON.parse(localStorage.getItem('blogs'));
         content.textContent = blog.content;
         content.classList.add('blog-content');
 
-        const readMoreLink = document.createElement('a');
-        readMoreLink.href = 'single.html'; 
-        readMoreLink.textContent = 'Read More';
-        readMoreLink.classList.add('read-more-link');
+        // const readMoreLink = document.createElement('a');
+        // readMoreLink.href = 'single.html'; 
+        // readMoreLink.textContent = 'Read More';
+        // readMoreLink.classList.add('read-more-link');
 
         blogPost.appendChild(image);
         blogPost.appendChild(title);
         blogPost.appendChild(content);
-        blogPost.appendChild(readMoreLink);
+        // blogPost.appendChild(readMoreLink);
 
         return blogPost;
     }

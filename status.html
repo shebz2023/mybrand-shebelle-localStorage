@@ -145,6 +145,16 @@ if (blogs) {
         statusList.appendChild(statusContainer);
     });
 }
+// security
+window.onload = function() {
+    // Check if the user is logged in
+    var isLoggedIn = localStorage.getItem('adminIsLoggedIn');
+
+    if (!isLoggedIn) {
+        // Redirect the user to the login page if not logged in
+        window.location.href = "LOGIN.HTML";
+    }
+}
 
 </script>
 </body>

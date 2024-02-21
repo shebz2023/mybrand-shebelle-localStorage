@@ -13,6 +13,7 @@
         background: #1a1a1a;
         margin: 0;
         padding: 0;
+        color:white;
     }
     .container {
         position: relative;
@@ -54,8 +55,8 @@
         color:red;
     }
     #titleError{
-        top:52%;
-        left: 87%;
+        top:230px;
+        left: 70%;
     }
     #contentError{
         left: 40%;
@@ -190,7 +191,7 @@ footer a:hover{
 }
     #updateButton {
     position: absolute;
-    top:49%;
+    top:360px;
     right:10%;
     background-color: #1a1a1a;
     border:2px solid #9cb071;
@@ -250,10 +251,6 @@ footer a:hover{
         if(blogTitle==""){
             titleError.innerHTML="Please enter something";
             return false;
-        }
-        if(!blogTitle.match(/^[a-zA-Z][^\s]{4,}$/)){
-        titleError.innerHTML="Just complete 5 characters";
-        return false;
         }
         titleError.innerHTML="<i class='bx bxs-user-check'></i>";
         return true;
@@ -368,16 +365,16 @@ function createBlogPost(blog, index) {
     iconsDiv.appendChild(editIcon);
     iconsDiv.appendChild(deleteIcon);
 
-    const readMoreLink = document.createElement('a');
-    readMoreLink.href = 'single.html'; 
-    readMoreLink.textContent = 'Read More';
-    readMoreLink.classList.add('read-more-link');
+    // const readMoreLink = document.createElement('a');
+    // readMoreLink.href = 'single.html'; 
+    // readMoreLink.textContent = 'Read More';
+    // readMoreLink.classList.add('read-more-link');
 
     blogPost.appendChild(image);
     blogPost.appendChild(title);
     blogPost.appendChild(content);
     blogPost.appendChild(iconsDiv); 
-    blogPost.appendChild(readMoreLink);
+    // blogPost.appendChild(readMoreLink);
 
     return blogPost;
 }
@@ -468,7 +465,7 @@ function logout() {
     localStorage.removeItem('adminIsLoggedIn');
 
     // Redirect to login page
-    window.location.href = "login.html";
+    window.location.href = "LOGIN.HTML";
 }
 
 </script>

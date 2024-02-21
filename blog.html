@@ -291,19 +291,19 @@ nav a:hover span{
         </div>
     </div>
     <script>
-       // navbar
-       function toggleMenu() {
-            var nav = document.querySelector('nav');
-            var menuIcon = document.querySelector('.menu-icon');
-            nav.classList.toggle('active');
-            menuIcon.classList.toggle('active');
-        }
+    // navbar
+    function toggleMenu() {
+        var nav = document.querySelector('nav');
+        var menuIcon = document.querySelector('.menu-icon');
+        nav.classList.toggle('active');
+        menuIcon.classList.toggle('active');
+    }
+
     // Retrieve blogs from local storage
     const blogs = JSON.parse(localStorage.getItem('blogs'));
-    // console.log('blogs');
 
     // Function to create blog posts
-    function createBlogPost(blog) {
+    function createBlogPost(blog, index) {
         const blogPost = document.createElement('div');
         blogPost.classList.add('blog-post');
 
@@ -325,6 +325,12 @@ nav a:hover span{
         readMoreLink.textContent = 'Read More';
         readMoreLink.classList.add('read-more-link');
 
+        // Add event listener to the "Read More" link
+        readMoreLink.addEventListener('click', function() {
+            // Store the index of the selected blog in local storage
+            localStorage.setItem('selectedBlogIndex', index);
+        });
+
         blogPost.appendChild(image);
         blogPost.appendChild(title);
         blogPost.appendChild(content);
@@ -336,46 +342,43 @@ nav a:hover span{
     // Display blogs
     const blogPostsContainer = document.querySelector('.blog-posts');
     if (blogs) {
-        blogs.forEach(blog => {
-            const blogPost = createBlogPost(blog);
+        blogs.forEach((blog, index) => {
+            const blogPost = createBlogPost(blog, index);
             blogPostsContainer.appendChild(blogPost);
         });
     }
-    // change the nav bar if signin
-     // if the user is logged in then change the signintext to dashboardtext
 
+    // Change the nav bar if signed in
+    window.onload = function() {
+        // Check if the user is logged in
+        var userIsLoggedIn = localStorage.getItem('userIsLoggedIn');
+        var adminIsLoggedIn = localStorage.getItem('adminIsLoggedIn');
 
-     window.onload = function() {
-    // Check if the user is logged in
-    var userIsLoggedIn = localStorage.getItem('userIsLoggedIn');
-    var adminIsLoggedIn = localStorage.getItem('adminIsLoggedIn');
+        // Get the nav element
+        var nav = document.querySelector('nav');
 
-    // Get the nav element
-    var nav = document.querySelector('nav');
+        if (userIsLoggedIn || adminIsLoggedIn) {
+            // Create a new anchor element
+            var anchor = document.createElement('a');
+            
+            // Remove the "Sign In" anchor
+            var signInAnchor = document.querySelector('nav a[href="LOGIN.HTML"]');
+            if (signInAnchor) {
+                nav.removeChild(signInAnchor);
+            }
 
-    if (userIsLoggedIn || adminIsLoggedIn) {
-        // Create a new anchor element
-        var anchor = document.createElement('a');
-        
-        // Remove the "Sign In" anchor
-        var signInAnchor = document.querySelector('nav a[href="LOGIN.HTML"]');
-        if (signInAnchor) {
-            nav.removeChild(signInAnchor);
+            // Set the href attribute and text based on whether it is admin or user login
+            if (userIsLoggedIn) {
+                anchor.href = 'userdashboard.html';
+            } else if (adminIsLoggedIn) {
+                anchor.href = 'dashboard.html';
+            }
+            anchor.innerText = 'Dashboard';
+
+            // Append the anchor element to the nav
+            nav.appendChild(anchor);
         }
-
-        // Set the href attribute and text based on whether it is admin or user login
-        if (userIsLoggedIn) {
-            anchor.href = 'userdashboard.html';
-        } else if (adminIsLoggedIn) {
-            anchor.href = 'dashboard.html';
-        }
-        anchor.innerText = 'Dashboard';
-
-        // Append the anchor element to the nav
-        nav.appendChild(anchor);
-    }
-};
-
+    };
 
     </script>
 </body>

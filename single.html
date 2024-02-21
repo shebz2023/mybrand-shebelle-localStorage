@@ -22,70 +22,76 @@
         }
 
         .header {
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #262626;
-    height: 60px;
-    color: white;
-    top: 0;
-    width: 100%;
-    padding: 0 20px;
-    z-index: 1000; }
-.header h1{
-    font-size: 24px;
-    color: white;
-    margin-left:40px;
-    font-weight: bolder;
-}
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #262626;
+            height: 60px;
+            color: white;
+            top: 0;
+            width: 100%;
+            padding: 0 20px;
+            z-index: 1000;
+        }
 
-nav {
-    width: 50%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #262626;
-    height: 60px;
-    color: white;
-}
+        .header h1 {
+            font-size: 24px;
+            color: white;
+            margin-left: 40px;
+            font-weight: bolder;
+        }
 
-nav a {
-    position: relative;
-    color: inherit;
-    text-decoration: none;
-    padding: 10px;
-}
-nav a span{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    border-bottom:2px solid #9cb071;
-    border-radius:15px;
-    transform:scale(0) translateY(50px);
-    transition: .5s;
-    opacity:0;
+        nav {
+            width: 50%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #262626;
+            height: 60px;
+            color: white;
+        }
 
-}
+        nav a {
+            position: relative;
+            color: inherit;
+            text-decoration: none;
+            padding: 10px;
+        }
 
-nav a:hover span{
-    color:#9cb071;
-    transform: scale(1) translateY(0);
-    opacity:1;
-}
-/* mobile nav bar */
- .menu-icon {
+        nav a span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-bottom: 2px solid #9cb071;
+            border-radius: 15px;
+            transform: scale(0) translateY(50px);
+            transition: .5s;
+            opacity: 0;
+        }
+
+        nav a:hover span {
+            color: #9cb071;
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+
+        /* mobile nav bar */
+        .menu-icon {
             display: none;
         }
+
         @media screen and (max-width: 768px) {
             .header {
                 padding: 0;
             }
+
             .header h1 {
                 margin-left: 0;
             }
+
             nav {
                 display: none;
                 width: 100%;
@@ -95,18 +101,21 @@ nav a:hover span{
                 background-color: #1a1a1a;
                 text-align: center;
                 height: 700px;
-                
             }
+
             nav.active {
                 display: block;
             }
+
             nav a {
                 display: block;
                 padding: 10px;
             }
+
             .header nav a:hover {
                 transform: none;
             }
+
             .menu-icon {
                 display: block;
                 cursor: pointer;
@@ -117,82 +126,108 @@ nav a:hover span{
                 color: white;
             }
         }
-        .wrapper{
+
+        .wrapper {
             display: flex;
         }
-        .one-blog{
-            padding:40px 40px 40px;
+
+        .leftpart {
+            padding: 40px;
             flex-basis: 70%;
             align-items: center;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color:#1a1a1a;
+            background-color: #1a1a1a;
         }
-        .one-blog .title{
-            width:100%;
-            height:15%;
+
+        .one-blog .title {
+            width: 100%;
+            height: 15%;
         }
-        .one-blog h1{
-            padding-top:10px;
+
+        .one-blog h1 {
+            padding-top: 10px;
             font-size: 30px;
-            color:white;
+            color: white;
         }
-        .one-blog p{
+
+        .one-blog p {
             padding-top: 5%;
-            font-size:20px;
+            font-size: 20px;
         }
-        .one-blog i{
+
+        .one-blog img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            max-height: 200px;
+        }
+
+        .one-blog i {
             padding-top: 30px;
             height: 40px;
-            color:#9cb071;
+            color: #9cb071;
         }
+
         /* comment section */
-    .comment-container {
-            background-color: #000;
-            margin-top: 1.5rem;
-            border: 1px solid #ccc;
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .comment-form h3 {
+            color: #9cb071;
+        }
+
+        .comment-form #comment {
+            position: relative;
+        }
+
+        .comment-form button {
+            background-color: #1a1a1a;
+            border: 2px solid #ccc;
+            color: white;
             padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-    }
-    .profile-pic {
-      width: 1.5rem;
-      height:1.5rem;
-      border-radius: 50%;
-      margin-right: 10px;
-    }
-    .comment {
-      margin-top: 5px;
-    }
-    .comment-like {
-      color: green;
-      margin-right: 10px;
-    }
-    .comment-dislike {
-      color: red;
-      margin-right: 10px;
-    }
-    .comment-form textarea {
-      width: 100%;
-      margin-top: 10px;
-    }
-    .comment-form button {
-      margin-top: 10px;
-      background-color:#1a1a1a;
-      border: 2px solid #ccc;
-      color:white;
-    }
-    .comment-form button:hover{
-      transform: scale(1.1);
-      transition: .5s;
-      border:2px solid black ;
-    }
-    #error{
-        color: red;
-        font-size: 12px;
-    }
-    /*  right container */
+            margin-top: 10px;
+        }
+
+        .comment-form button:hover {
+            transform: scale(1.1);
+            transition: .5s;
+            border: 2px solid black;
+        }
+
+        .comment-container {
+            margin-top: 20px;
+        }
+
+        .comment-container div {
+            margin-bottom: 10px;
+        }
+
+        .comment-container div:first-child {
+            margin-top: 0;
+        }
+
+        .comment-container div:last-child {
+            margin-bottom: 0;
+        }
+
+        .comment-error {
+            position: absolute;
+            top: 30px;
+            left: 300px;
+            color: red;
+            font-size: 12px;
+        }
+
+        /* right container */
+
         .blog-container {
             flex-basis: 30%;
             padding: 20px;
@@ -213,20 +248,14 @@ nav a:hover span{
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-        }
-
-        .blog-posts {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
             gap: 20px;
         }
 
         .blog-post {
             position: relative;
-            width: calc(90% - 5px); 
+            width: calc(90% - 5px);
             max-height: 300px;
-            margin-bottom: 20px; 
+            margin-bottom: 20px;
             overflow: hidden;
             background-color: #1a1a1a;
             color: #fff;
@@ -235,9 +264,8 @@ nav a:hover span{
 
         .blog-image {
             width: 100%;
+            max-width: 100%;
             height: auto;
-            max-height: 200px;
-            object-fit: cover;
             border-radius: 8px 8px 0 0;
         }
 
@@ -251,9 +279,28 @@ nav a:hover span{
             margin-bottom: 10px;
         }
 
+        .like-btn {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .like-btn:hover {
+            background-color: #555;
+        }
+
+        .like-count {
+            color: #9cb071;
+            margin-bottom: 10px;
+        }
+
         .read-more-link {
             position: absolute;
-            top:50%;
+            top: 50%;
             font-weight: bolder;
             font-size: 25px;
             color: #55623a;
@@ -266,95 +313,74 @@ nav a:hover span{
             text-decoration: underline;
         }
 
-        .blog-container a{
+        .blog-container a {
             margin-top: 20px;
             text-align: center;
             color: #9cb071;
-            cursor:pointer;
+            cursor: pointer;
         }
-        .blog-container a:hover{
+
+        .blog-container a:hover {
             transform: scale(1.1);
         }
-        /* Media Query for Small Devices */
-        @media screen and (max-width: 768px) {
-    .blog-container{
-        display:none;
-    }
-    .one-blog{
-        flex-basis: 100%;
-    }
-    .comment-container {
-        flex-basis: 100%;
-    }
 
-}
+        /* Media Query for Small Devices */
+
+        @media screen and (max-width: 768px) {
+            .blog-container {
+                display: none;
+            }
+
+            .leftpart {
+                flex-basis: 100%;
+            }
+
+            .comment-container {
+                flex-basis: 100%;
+            }
+        }
 
     </style>
 </head>
 <body>
-    <div class="header">
-        
-        <h1>S...</h1>
-        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-        <nav>       
-             <a href="index.html">Home<span></spans></a> 
-             <a href="index.html">About<span></span></a>    
-             <a href="index.html">Portfolio<span></span></a> 
-             <a href="blog.html">Blog<span></span></a>
-             <a href="contact.html">Contact<span></span></a> 
-             <a href="LOGIN.HTML">Sign in<span></span></a> 
-        </nav>
-    </div>
-    <div class="wrapper">
+<div class="header">
+    <h1>S...</h1>
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <nav>
+        <a href="index.html">Home<span></span></a>
+        <a href="index.html">About<span></span></a>
+        <a href="index.html">Portfolio<span></span></a>
+        <a href="blog.html">Blog<span></span></a>
+        <a href="contact.html">Contact<span></span></a>
+        <a href="LOGIN.HTML">Sign in<span></span></a>
+    </nav>
+</div>
+<div class="wrapper">
+    <!-- left part -->
+    <div class="leftpart">
         <div class="one-blog">
-
-            <!-- content of one blog  --> 
-
-            5<i class="far fa-thumbs-up"></i>
-            2<i class="far fa-thumbs-down"></i>
-         <div class="comment-container">
-            <div class="commenter">
-              <img class="profile-pic" src="assets/shebz.png" alt="Profile Picture">
-              <span class="commenter-name">patrick</span>
-            </div>
-            <div class="comment">
-              <span class="comment-like"><i class="far fa-thumbs-up"></i> 10</span>
-              <span class="comment-dislike"><i class="far fa-thumbs-down"></i> 2</span>
-              <p>
-                what country is this????
-              </p>
-            </div>
-          </div>
-        
-        
-          <div class="comment-container">
-            <div class="commenter">
-              <img class="profile-pic" src="assets/hacker.png" alt="Profile Picture">
-              <span class="commenter-name">musabe</span>
-            </div>
-            <div class="comment">
-              <span class="comment-like"><i class="far fa-thumbs-up"></i> 8</span>
-              <span class="comment-dislike"><i class="far fa-thumbs-down"></i> 1</span>
-              <p>
-                wow!!keep it up bro the article is fire
-              </p>
-            </div>
-          </div>
-        
-         <!-- comment section -->
-
-        
+            <!-- content of one blog  -->
         </div>
-        <!-- side part of page -->
+        <form class="comment-form">
+            <h3>add a Comment</h3>
+            <textarea placeholder="leave a comment" id="comment"></textarea>
+            <span id="error" class="comment-error"></span>
+            <button type="button" onclick="addComment()">comment</button>
+        </form>
+        <div class="like-section">
+            <button class="like-btn" onclick="likeBlog()"><i class="fas fa-heart"></i></button>
+            <div class="like-count">0 Likes</div>
+        </div>
+        <div class="comments-container">
+            <!-- Comments for the selected blog -->
+        </div>
+    </div>
+    <!-- right part of page -->
     <div class="blog-container">
         <h2 class="blog-header">BLOGS</h2>
-        
-            <div class="blog-posts">
-        
+        <div class="blog-posts">
             <!-- blogs  -->
-        
-            </div>
-
+        </div>
         <a href="blog.html">viewmore</a>
     </div>
 </div>
@@ -367,148 +393,201 @@ nav a:hover span{
         menuIcon.classList.toggle('active');
     }
 
-    // validating the comment section
-    function validate(){
-        var error = document.getElementById('error');
-        var comment = document.getElementById('comment').value;
-        if(comment.trim() === ""){
-            error.innerHTML = "you can't leave a blank comment";
-            return false;
-        }
-        error.innerHTML = "<i class='bx bxs-check-circle'></i>";
-        return true;
+    // Load blogs from local storage
+    var blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+
+    // Function to display blog posts for the right part
+    function displayRightPart() {
+        var blogPostsContainer = document.querySelector('.blog-container');
+        blogPostsContainer.innerHTML = "";
+
+        blogs.forEach((blog, index) => {
+            var blogPost = createBlogPost(blog, index);
+            blogPostsContainer.appendChild(blogPost);
+        });
     }
 
-    // Retrieving blogs from localstorage
-    var blogs = JSON.parse(localStorage.getItem('blogs'));
-
-   // generate leftpart
- function leftpart(index) {
-    const blog = blogs[index]; 
-    
-    const image = document.createElement('img');
-    image.src = blog.image;
-    image.alt = 'blog picture';
-    image.classList.add('title');
-
-    const title = document.createElement('h1');
-    title.textContent = blog.title;
-
-    const content = document.createElement('p');
-    content.textContent = blog.content;
-
-    const leftContainer = document.querySelector('.one-blog');
-    leftContainer.innerHTML = ''; // Clear existing content before putting
-    leftContainer.appendChild(image);
-    leftContainer.appendChild(title);
-    leftContainer.appendChild(content);
-}
-
-//    make the comment section
-
-// keeping comment to local storage
-
- 
-//  <form class="comment-form">
-//             <h3>add a Comment</h3>
-//             <textarea placeholder="leave a comment" id="comment" ></textarea>
-//             <button type="button" onclick="validate()">comment</button>
-//             <span id="error"></span>
-//           </form>
-
-    // dynamically make the blogs for right side
-    if (blogs && blogs.length > 0) {
-        rightpart();
-    }
-  // Event listener for "Read More" link clicks
-  document.querySelectorAll('.read-more-link').forEach((link, index) => {
-    link.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent default  behavior
-        leftpart(index); 
-    });
-});
-
-
-    // creating right part
-
-    function createrightpart(blog) {
-        const blogPost = document.createElement('div');
+    // Function to create blog posts for the right part
+    function createBlogPost(blog, index) {
+        var blogPost = document.createElement('div');
         blogPost.classList.add('blog-post');
 
-        const image = document.createElement('img');
+        var image = document.createElement('img');
         image.src = blog.image;
         image.alt = 'Blog Image';
         image.classList.add('blog-image');
+        blogPost.appendChild(image);
 
-        const title = document.createElement('h3');
+        var title = document.createElement('h3');
         title.textContent = blog.title;
         title.classList.add('blog-title');
+        blogPost.appendChild(title);
 
-        const content = document.createElement('p');
+        var content = document.createElement('p');
         content.textContent = blog.content;
         content.classList.add('blog-content');
+        blogPost.appendChild(content);
 
-        const readMoreLink = document.createElement('a');
-        readMoreLink.href = 'single.html'; 
+        var readMoreLink = document.createElement('a');
+        readMoreLink.href = '#';
         readMoreLink.textContent = 'Read More';
         readMoreLink.classList.add('read-more-link');
-
-        blogPost.appendChild(image);
-        blogPost.appendChild(title);
-        blogPost.appendChild(content);
+        readMoreLink.addEventListener('click', function () {
+            localStorage.setItem('selectedBlogIndex', index);
+            displayLeftPart(index);
+        });
         blogPost.appendChild(readMoreLink);
 
         return blogPost;
     }
 
-    function rightpart() {
-        var blogPostsContainer = document.querySelector('.blog-posts');
-        blogs.forEach(blog => {
-            const blogPost = createrightpart(blog);
-            blogPostsContainer.appendChild(blogPost);
-        });
+    // Function to display the left part of the blog
+    function displayLeftPart(index) {
+        var blog = blogs[index];
+        var oneBlogContainer = document.querySelector('.one-blog');
+        oneBlogContainer.innerHTML = ""; // Clear existing content
+
+        var image = document.createElement('img');
+        image.src = blog.image;
+        image.alt = 'Blog Picture';
+        oneBlogContainer.appendChild(image);
+
+        var title = document.createElement('h1');
+        title.textContent = blog.title;
+        oneBlogContainer.appendChild(title);
+
+        var content = document.createElement('p');
+        content.textContent = blog.content;
+        oneBlogContainer.appendChild(content);
+
+        // Display comments for the selected blog
+        displayComments(index);
+
+        // Display likes for the selected blog
+        displayLikes(index);
     }
 
-    // nav bar 
-     // if the user is logged in then change the signintext to dashboardtext
+    // Function to handle likes for the selected blog
+    function likeBlog() {
+        var selectedBlogIndex = localStorage.getItem('selectedBlogIndex');
+        var likedBlogs = JSON.parse(localStorage.getItem('likedBlogs')) || {};
+        var currentUserEmail = localStorage.getItem('currentUserEmail');
 
-
-     window.onload = function() {
-    // Check if the user is logged in
-    var userIsLoggedIn = localStorage.getItem('userIsLoggedIn');
-    var adminIsLoggedIn = localStorage.getItem('adminIsLoggedIn');
-
-    // Get the nav element
-    var nav = document.querySelector('nav');
-
-    if (userIsLoggedIn || adminIsLoggedIn) {
-        // Create a new anchor element
-        var anchor = document.createElement('a');
-        
-        // Remove the "Sign In" anchor
-        var signInAnchor = document.querySelector('nav a[href="LOGIN.HTML"]');
-       
-        if (signInAnchor) {
-            nav.removeChild(signInAnchor);
+        if (!likedBlogs[currentUserEmail]) {
+            likedBlogs[currentUserEmail] = {};
         }
 
-        // Set the href attribute and text based on whether it is admin or user login
-        if (userIsLoggedIn) {
-            anchor.href = 'userdashboard.html';
-        } else if (adminIsLoggedIn) {
-            anchor.href = 'dashboard.html';
+        if (!likedBlogs[currentUserEmail][selectedBlogIndex]) {
+            likedBlogs[currentUserEmail][selectedBlogIndex] = true;
+        } else {
+            delete likedBlogs[currentUserEmail][selectedBlogIndex];
         }
-        anchor.innerText = 'Dashboard';
 
-        // Append the anchor element to the nav
-        nav.appendChild(anchor);
+        // Store the updated likedBlogs object back to local storage
+        localStorage.setItem('likedBlogs', JSON.stringify(likedBlogs));
+
+        // Update like count displayed on the page
+        displayLikes(selectedBlogIndex);
     }
-};
 
-    
+    // Function to display likes for the selected blog
+    function displayLikes(blogIndex) {
+        var likedBlogs = JSON.parse(localStorage.getItem('likedBlogs')) || {};
+        var likeCountElement = document.querySelector('.like-count');
+        var likesCount = 0;
 
-        // importing icons 
-        src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
-    </script>
+        for (var user in likedBlogs) {
+            if (likedBlogs[user][blogIndex]) {
+                likesCount++;
+            }
+        }
+
+        likeCountElement.textContent = likesCount + ' Likes';
+    }
+
+    // Function to display comments for the selected blog
+    function displayComments(blogIndex) {
+        var blogs = JSON.parse(localStorage.getItem('blogs'));
+        var commentsContainer = document.querySelector('.comments-container');
+        commentsContainer.innerHTML = "";
+        if (blogs[blogIndex].comments) {
+            blogs[blogIndex].comments.forEach(comment => {
+                var commentElement = document.createElement('div');
+                commentElement.textContent = comment;
+                commentsContainer.appendChild(commentElement);
+            });
+        }
+    }
+
+    // Function to add comment
+    function addComment() {
+        var commentInput = document.getElementById('comment').value.trim();
+        if (commentInput === "") {
+            document.getElementById('error').innerText = "You can't leave a blank comment";
+            return;
+        }
+        document.getElementById('error').innerText = "";
+
+        // Retrieve selected blog index
+        var selectedBlogIndex = localStorage.getItem('selectedBlogIndex');
+
+        // Retrieve blogs from local storage
+        var blogs = JSON.parse(localStorage.getItem('blogs'));
+
+        // Initialize comments array if not present
+        if (!blogs[selectedBlogIndex].comments) {
+            blogs[selectedBlogIndex].comments = [];
+        }
+
+        // Retrieve user's email from local storage
+        var userEmail = localStorage.getItem('currentUserEmail');
+
+        // Add comment with user's email to the selected blog
+        var commentWithEmail = userEmail + ": " + commentInput;
+        blogs[selectedBlogIndex].comments.push(commentWithEmail);
+
+        // Update local storage
+        localStorage.setItem('blogs', JSON.stringify(blogs));
+
+        // Clear comment input
+        document.getElementById('comment').value = "";
+
+        // Refresh displayed comments
+        displayComments(selectedBlogIndex);
+    }
+
+    // Check user login status and update navigation accordingly
+    window.onload = function () {
+        var userIsLoggedIn = localStorage.getItem('userIsLoggedIn');
+        var adminIsLoggedIn = localStorage.getItem('adminIsLoggedIn');
+        var nav = document.querySelector('nav');
+
+        if (userIsLoggedIn || adminIsLoggedIn) {
+            var anchor = document.createElement('a');
+            var signInAnchor = document.querySelector('nav a[href="LOGIN.HTML"]');
+            if (signInAnchor) {
+                nav.removeChild(signInAnchor);
+            }
+            if (userIsLoggedIn) {
+                anchor.href = 'userdashboard.html';
+            } else if (adminIsLoggedIn) {
+                anchor.href = 'dashboard.html';
+            }
+            anchor.innerText = 'Dashboard';
+            nav.appendChild(anchor);
+        }
+
+        // Load blogs from local storage
+        if (blogs.length > 0) {
+            displayRightPart();
+
+            // Retrieve selected blog index
+            var selectedBlogIndex = localStorage.getItem('selectedBlogIndex');
+            if (selectedBlogIndex !== null) {
+                displayLeftPart(selectedBlogIndex);
+            }
+        }
+    };
+</script>
 </body>
 </html>

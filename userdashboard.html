@@ -54,7 +54,7 @@
         color:red;
     }
     #titleError{
-        top:52%;
+        top:220px;
         left: 87%;
     }
     #contentError{
@@ -180,7 +180,7 @@
     }
     #updateButton {
     position: absolute;
-    top:32%;
+    top:350px;
     right:10%;
     background-color: #1a1a1a;
     border:2px solid #9cb071;
@@ -243,10 +243,6 @@
         if(blogTitle==""){
             titleError.innerHTML="Please enter something";
             return false;
-        }
-        if(!blogTitle.match(/^[a-zA-Z][^\s]{4,}$/)){
-        titleError.innerHTML="Just complete 5 characters";
-        return false;
         }
         titleError.innerHTML="<i class='bx bxs-user-check'></i>";
         return true;
@@ -361,16 +357,16 @@ function createBlogPost(blog, index) {
     iconsDiv.appendChild(editIcon);
     iconsDiv.appendChild(deleteIcon);
 
-    const readMoreLink = document.createElement('a');
-    readMoreLink.href = 'single.html'; 
-    readMoreLink.textContent = 'Read More';
-    readMoreLink.classList.add('read-more-link');
+    // const readMoreLink = document.createElement('a');
+    // readMoreLink.href = 'single.html'; 
+    // readMoreLink.textContent = 'Read More';
+    // readMoreLink.classList.add('read-more-link');
 
     blogPost.appendChild(image);
     blogPost.appendChild(title);
     blogPost.appendChild(content);
     blogPost.appendChild(iconsDiv); 
-    blogPost.appendChild(readMoreLink);
+    // blogPost.appendChild(readMoreLink);
 
     return blogPost;
 }

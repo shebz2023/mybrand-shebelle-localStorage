@@ -280,6 +280,8 @@
         });
 
         if (foundUser) {
+            // Store the user's email in local storage upon successful login
+            localStorage.setItem('currentUserEmail', email);
             // If user is found, proceed to login
             handleLogin();
         } else {
@@ -289,32 +291,34 @@
         }
     }
 
+    // Function to handle the login process
     function handleLogin() {
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    if (email === 'shebelle@admin.com' && password === 'shebelle@123') {
-        window.location.href = "dashboard.html";
-        localStorage.setItem('adminIsLoggedIn', true);
-    } else {
-        // Redirect to userdashboard.html for general userss
-        window.location.href = "userdashboard.html";
-        localStorage.setItem('userIsLoggedIn', true);
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        if (email === 'shebelle@admin.com' && password === 'shebelle@123') {
+            window.location.href = "dashboard.html";
+            localStorage.setItem('adminIsLoggedIn', true);
+        } else {
+            // Redirect to userdashboard.html for general users
+            window.location.href = "userdashboard.html";
+            localStorage.setItem('userIsLoggedIn', true);
+        }
     }
-}
 
-// if the user is already logged in ,never see this page
-window.onload = function() {
-    // Check if the user is logged in
-    var userIsLoggedIn = localStorage.getItem('userIsLoggedIn');
-    var adminIsLoggedIn = localStorage.getItem('adminIsLoggedIn');
+    // Check if the user is already logged in upon page load
+    window.onload = function() {
+        // Check if the user is logged in
+        var userIsLoggedIn = localStorage.getItem('userIsLoggedIn');
+        var adminIsLoggedIn = localStorage.getItem('adminIsLoggedIn');
 
-    if (userIsLoggedIn) {
-        // Redirect the user to the user dashboard if logged in
-        window.location.href = "userdashboard.html";
-    } else if (adminIsLoggedIn) {
-        // Redirect the admin to the admin dashboard if logged in
-        window.location.href = "dashboard.html";
-    }}
+        if (userIsLoggedIn) {
+            // Redirect the user to the user dashboard if logged in
+            window.location.href = "userdashboard.html";
+        } else if (adminIsLoggedIn) {
+            // Redirect the admin to the admin dashboard if logged in
+            window.location.href = "dashboard.html";
+        }
+    }
     </script>
 </body>
 </html>
