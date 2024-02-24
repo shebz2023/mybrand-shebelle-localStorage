@@ -164,6 +164,7 @@ nav a:hover span{
         }
 
         .blog-posts {
+            width:100%;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
@@ -369,12 +370,12 @@ nav a:hover span{
 
             // Set the href attribute and text based on whether it is admin or user login
             if (userIsLoggedIn) {
-                anchor.href = 'userdashboard.html';
-            } else if (adminIsLoggedIn) {
-                anchor.href = 'dashboard.html';
-            }
-            anchor.innerText = 'Dashboard';
-
+            anchor.href = 'userdashboard.html';
+            anchor.innerText = 'ACCOUNT';
+                } else if (adminIsLoggedIn) {
+                    anchor.href = 'dashboard.html';
+                    anchor.innerText = 'Dashboard';
+                }
             // Append the anchor element to the nav
             nav.appendChild(anchor);
         }

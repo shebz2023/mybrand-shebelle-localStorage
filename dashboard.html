@@ -464,6 +464,10 @@ function logout() {
     // Clear authentication state
     localStorage.removeItem('adminIsLoggedIn');
 
+    //clear the currentUserEmail
+
+    localStorage.setItem('currentUserEmail',[]);
+
     // Redirect to login page
     window.location.href = "LOGIN.HTML";
 }

@@ -370,10 +370,11 @@ const blogs = JSON.parse(localStorage.getItem('blogs'));
         // Set the href attribute and text based on whether it is admin or user login
         if (userIsLoggedIn) {
             anchor.href = 'userdashboard.html';
+            anchor.innerText = 'ACCOUNT';
         } else if (adminIsLoggedIn) {
             anchor.href = 'dashboard.html';
+            anchor.innerText = 'Dashboard';
         }
-        anchor.innerText = 'Dashboard';
 
         // Append the anchor element to the nav
         nav.appendChild(anchor);

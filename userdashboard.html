@@ -7,439 +7,89 @@
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 <style>
-    
-    body {
-        font-family: Arial, sans-serif;
-        background: #1a1a1a;
-        margin: 0;
-        padding: 0;
-    }
-    .container {
-        position: relative;
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 20px;
-        background: black;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-        text-align: center;
-        color: #333;
-    }
-    form {
-        margin-bottom: 20px;
-    }
-    input[type="text"],
-    textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #9cb071;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-    input[type="text"]:focus,
-    textarea:focus {
-        outline: none;
-        border-color: 3px solid black;
-    }
-    form i{
-        color:seagreen;
-    }
-    #titleError,#contentError,#submitError{
-        position: absolute;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 13px;
-        color:red;
-    }
-    #titleError{
-        top:220px;
-        left: 87%;
-    }
-    #contentError{
-        left: 40%;
-    }
-    #submitError{
-        top:17%;
-    }
-    #danger{
-        font-size: 30px;
-        color:red;
-    }
-    #cloud{
-        font-size: 30px;
-        color: seagreen;
-    }
-    .btn {
-        display:block;
-        padding: 10px 20px;
-        background-color: #9cb071;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition:  0.3s;
-        margin: auto;
-    }
-    .btn:hover {
-        background-color: #7c8c5b;
-    }
-     .dashimg {
-        width: 100%;
-        height: 200px; 
-        overflow: hidden; 
-    }
-    
-    .dashimg img {
-        width: 100%;
-        height: auto; 
-        display: block; 
-    }
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    font-family:'Popins'
 
-    .blog-post {
-        position: relative;
-        max-height: 200px;
-        overflow:hidden;
-        background-color: #1a1a1a;
-        color: #fff;
-        border-radius: 8px;
-        overflow: hidden;
-        margin-bottom: 20px;
-        padding: 20px;
-    }
+}
+body{
+             display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background:url(assets/wallpaperflare.com_wallpaper\ \(2\).jpg);
+}
+.content{
+    width:100%;
+    height:100vh;
+    background-color: rgba(0,0,0,0.4);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction: column;
+    gap:30px;
+}
 
-    .blog-post img {
-        width: 100%;
-        max-height: 50px;
-        height: auto;
-        border-radius: 8px 8px 0 0;
-        object-fit: cover;
-    }
-
-    .blog-post-content {
-        margin-top: 20px;
-    }
-
-    .blog-post-title {
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
-
-    .blog-post-icons {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-    }
-
-    .blog-post-icons i {
-        font-size: 50px;
-        margin-left: 10px;
-        cursor: pointer;
-        color: #9cb071;
-    }
-
-    .blog-post-icons i:hover {
-        color: #7c8c5b;
-    }
-
-    .footer a{
-        position: fixed;
-        background: #000000;
-        padding:10px 18px;
-        text-decoration:none;
-        font-weight:bold;
-        color:white;
-        display:inline-block;
-        border-radius:8px;
-    }
-
-    .footer button{
-        position:fixed;
-        background: #000000;
-        padding:10px 18px;
-        font-weight:bold;
-        color:white;
-        border-radius:8px;
-        cursor: pointer;
-    }
-
-    .footer button:hover {
-        transform: scale(1.05);
-        background-color: #232222;
-    }
-
-    .footer >:first-child {
-        top: 0px;
-        left: 20px;
-    }
-
-    .footer >:nth-child(2) {
-        bottom: 20px;
-        right: 20px;
-    }
-    #updateButton {
-    position: absolute;
-    top:350px;
-    right:10%;
-    background-color: #1a1a1a;
+.content{
+    text-align:center;
+}
+.content h1{
+    font-size:90px;
+    color:white;
+    margin-bottom:50px;
+    padding:15px 25px;
+    border-radius:50px;
+}
+.content a{
+    font-size: 23px;
+    font-weight: 600;
+    color:#fff;
+    text-decoration:none;
     border:2px solid #9cb071;
+    padding:15px 25px;
+    border-radius:50px;
+    transition:0.3s;
 }
-#updateButton:hover {
-    border:2px solid #6f7e4e;
-    background-color: #383535;
+
+.content a:hover, .content button:hover{
+    background-color: #1a1a1a;
+    color:#9cb071;
 }
+.content button:hover{
+    color:red;
+}
+.content button{
+    font-size: 23px;
+    color:white;
+    text-decoration:none;
+    border:2px solid #9cb071;
+    padding:15px 25px;
+    border-radius:50px;
+    transition:0.3s;
+    background-color: rgba(0,0,0,0.4);
+}
+.content img{
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 50%;
+}
+
 
 </style>
 </head>
 <body>
+   
+    <div class="content">
+        <img src="assets/loga.png" alt="">
+        <a href="index.html">HOME</a>
+        <a href="blog.html">BLOGS</a>
+        <button onclick="logout()">LOGOUT</button>    
     
-<div class="container">
-    <div class="dashimg">
-        <img src="assets/dashboard.png" alt="">
     </div>
-    <!-- Form to add a new blog post -->
-    <form>
-        <input type="text" id="blogTitle" placeholder="Enter Blog Title" onkeyup="validatetitle()">
-        <span id="titleError"></span>
-        <textarea id="blogContent" placeholder="Enter Blog Content" onkeyup="validateContent()"></textarea>
-        <span id="contentError"></span>
-        <input type="file" name="Image" accept=".jpg, .jpeg, .png">
-        <button type="button" onclick="validate()" class="btn">Add Blog</button>
-        <span id="submitError"></span>
-    </form>
-    <div class="blog-posts">
-    <!-- <h1>MY BROGS</h1>
-    <div class="blog-post">
-        <img src="assets/planes.png" alt="PLANES">
-        <h3 class="blog-post-title">PLANES</h3>
-        <div class="blog-post-content">
-            <p>Suspendisse lectus tod, dolor. Lorem ipsum dolor, sit amet consectetur adipisicing eit. Minima, cumquerchitec</p>
-            <div class="blog-post-icons">
-                <i class="bx bx-edit"></i>
-                <i class="bx bx-trash"></i>
-            </div>
-        </div>
-        <a href="single.html" class="read-more-link">Read More</a>
-    </div> -->
-    </div>
-</div>
-<footer>
-    <div class="footer">
-        <a href="blog.html">back to blogs</a>
-        <button onclick="logout()">logout</button> 
-    </div>
-</footer>
 
 <script>
-    
-    //validating the add blog form
-    // validate the title
-    var titleError=document.getElementById('titleError');
-    var contentError = document.getElementById('contentError');
-    var submitError=document.getElementById('submitError');
-    function validatetitle(){
-        var blogTitle=document.getElementById('blogTitle').value;
-        if(blogTitle==""){
-            titleError.innerHTML="Please enter something";
-            return false;
-        }
-        titleError.innerHTML="<i class='bx bxs-user-check'></i>";
-        return true;
-    }
-    // validate the blog content
-    function validateContent(){
-        var blogContent=document.getElementById('blogContent').value;
-        var required=30;
-        var left=required-blogContent.length;
-        if(blogContent==""){
-            contentError.innerHTML="Type something";
-            return false;
-        }
-        if(left>0){
-            contentError.innerHTML="keep coming ,only" + left + "characters left";
-            return false;
-        }
-        contentError.innerHTML="<i class='bx bxs-user-check'></i>";
-        return true;
-    }
-    // sending button
-    function validate(){
-        if(!validatetitle() || !validateContent()){
-           submitError.style.display='block';
-           setTimeout(function(){submitError.style.display='none'},3000);
-           submitError.innerHTML="<i class='bx bx-error-alt' id='danger'></i>";
-           return false;
-         }  saveToLocalStorage();
-        }
-       
-        function saveToLocalStorage() {
-            var title = document.getElementById('blogTitle').value.trim();
-            var content = document.getElementById('blogContent').value.trim();
-            getImageBase64String(function(base64String) {
-                if (title && content && base64String) {
-                    var blogData = {
-                        title: title,
-                        content: content,
-                        image: base64String
-                    };
-                    // Retrieve existing blog data from local storage
-                    var existingBlogs = JSON.parse(localStorage.getItem('blogs')) || [];
-                    // Add the new blog data to the array
-                    existingBlogs.push(blogData);
-                    // Save the updated array back to local storage
-                    localStorage.setItem('blogs', JSON.stringify(existingBlogs));
-                    // Reset form fields
-                    document.querySelector('form').reset();
-                    alert("Blog saved successfully!");
-                } else {
-                    alert("Please fill in all fields including selecting an image.");
-                }
-            });
-        }
-
-        function getImageBase64String(callback) {
-            var input = document.querySelector('input[type="file"]');
-            if (input.files.length === 0) {
-                callback(null);
-                return;
-            }
-            var file = input.files[0];
-            var reader = new FileReader();
-            reader.onloadend = function() {
-                var base64String = reader.result;
-                callback(base64String);
-            };
-            reader.readAsDataURL(file);
-        }
-    // Retrieve blogs from local storage
-    const blogs = JSON.parse(localStorage.getItem('blogs'));
-        // console.log('blogs');
-  
-    // Function to create blog posts
-function createBlogPost(blog, index) {
-    const blogPost = document.createElement('div');
-    blogPost.classList.add('blog-post');
-
-    const image = document.createElement('img');
-    image.src = blog.image;
-    image.alt = 'Blog Image';
-    image.classList.add('blog-image');
-
-    const title = document.createElement('h3');
-    title.textContent = blog.title;
-    title.classList.add('blog-title');
-
-    const content = document.createElement('p');
-    content.textContent = blog.content;
-    content.classList.add('blog-content');
-
-    const iconsDiv = document.createElement('div');
-    iconsDiv.classList.add('blog-post-icons');
-
-    const editIcon = document.createElement('i');
-    editIcon.classList.add('bx', 'bx-edit');
-    editIcon.addEventListener('click', function() {
-        // Pass the index of the blog post when edit icon is clicked
-        letsupdate(index);
-    
-    });
-
-    const deleteIcon = document.createElement('i');
-    deleteIcon.classList.add('bx', 'bx-trash');
-    deleteIcon.addEventListener('click', function() {
-        // Delete the blog post from local storage
-        deleteBlog(blog);
-        // Remove the blog post from the UI
-        blogPost.remove();
-    });
-
-    iconsDiv.appendChild(editIcon);
-    iconsDiv.appendChild(deleteIcon);
-
-    // const readMoreLink = document.createElement('a');
-    // readMoreLink.href = 'single.html'; 
-    // readMoreLink.textContent = 'Read More';
-    // readMoreLink.classList.add('read-more-link');
-
-    blogPost.appendChild(image);
-    blogPost.appendChild(title);
-    blogPost.appendChild(content);
-    blogPost.appendChild(iconsDiv); 
-    // blogPost.appendChild(readMoreLink);
-
-    return blogPost;
-}
-
-//    UPDATING FUNCTION
-
-
-function letsupdate(index) {
-    // Get the blog data from the specified index
-    const blog = blogs[index];
-    
-    // Populate the form fields with the blog data
-    document.getElementById('blogTitle').value = blog.title;
-    document.getElementById('blogContent').value = blog.content;
-    
-    // Create a button dynamically
-    const updateButton = document.createElement('button');
-    
-        updateButton.textContent = 'Update';
-        updateButton.classList.add('btn');
-        updateButton.id = "updateButton";
-    
-    // Add an event listener to the update button
-    updateButton.addEventListener('click', function() {
-        // Update the blog data with the new values from the form fields
-        blog.title = document.getElementById('blogTitle').value;
-        blog.content = document.getElementById('blogContent').value;
-        
-        // Update the image if a new file is selected
-        const input = document.querySelector('input[type="file"]');
-        if (input.files.length > 0) {
-            getImageBase64String(function(base64String) {
-                if (base64String) {
-                    blog.image = base64String;
-                    // Save the updated blog data to local storage
-                    localStorage.setItem('blogs', JSON.stringify(blogs));
-                } else {
-                    alert('Please select an image.');
-                    return;
-                } 
-            });
-        } else {
-            // Save the updated blog data to local storage
-            localStorage.setItem('blogs', JSON.stringify(blogs));
-        }
-
-        // Hide the update button
-        updateButton.style.display = 'none';
-        
-        // Show an alert to indicate that the blog has been updated
-        alert('Blog updated!');
-    });
-    
-    // Append the update button to the container
-    document.querySelector('.container').appendChild(updateButton);
-}
-
-// Display blogs
-const blogPostsContainer = document.querySelector('.blog-posts');
-if (blogs) {
-    blogs.forEach((blog, index) => {
-        const blogPost = createBlogPost(blog, index); // Pass the index
-        blogPostsContainer.appendChild(blogPost);
-    });
-}
-
-// function to delete blog
-function deleteBlog(blog) {
-    const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
-    const updatedBlogs = blogs.filter(item => item.title !== blog.title || item.content !== blog.content);
-    localStorage.setItem('blogs', JSON.stringify(updatedBlogs));
-}
- 
   
 // security
 window.onload = function() {

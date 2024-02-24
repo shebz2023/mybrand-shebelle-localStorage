@@ -351,7 +351,7 @@
         <a href="index.html">About<span></span></a>
         <a href="index.html">Portfolio<span></span></a>
         <a href="blog.html">Blog<span></span></a>
-        <a href="contact.html">Contact<span></span></a>
+        <a href="index.html">Contact<span></span></a>
         <a href="LOGIN.HTML">Sign in<span></span></a>
     </nav>
 </div>
@@ -472,6 +472,13 @@
         var selectedBlogIndex = localStorage.getItem('selectedBlogIndex');
         var likedBlogs = JSON.parse(localStorage.getItem('likedBlogs')) || {};
         var currentUserEmail = localStorage.getItem('currentUserEmail');
+        
+        // check if currentUserEmail is empty
+        if (!currentUserEmail) {
+        // Redirect to login page
+        window.location.href = 'LOGIN.HTML';
+        return; // Stop execution
+        }
 
         if (!likedBlogs[currentUserEmail]) {
             likedBlogs[currentUserEmail] = {};
@@ -520,41 +527,52 @@
     }
 
     // Function to add comment
-    function addComment() {
-        var commentInput = document.getElementById('comment').value.trim();
-        if (commentInput === "") {
-            document.getElementById('error').innerText = "You can't leave a blank comment";
-            return;
-        }
-        document.getElementById('error').innerText = "";
-
-        // Retrieve selected blog index
-        var selectedBlogIndex = localStorage.getItem('selectedBlogIndex');
-
-        // Retrieve blogs from local storage
-        var blogs = JSON.parse(localStorage.getItem('blogs'));
-
-        // Initialize comments array if not present
-        if (!blogs[selectedBlogIndex].comments) {
-            blogs[selectedBlogIndex].comments = [];
-        }
-
-        // Retrieve user's email from local storage
-        var userEmail = localStorage.getItem('currentUserEmail');
-
-        // Add comment with user's email to the selected blog
-        var commentWithEmail = userEmail + ": " + commentInput;
-        blogs[selectedBlogIndex].comments.push(commentWithEmail);
-
-        // Update local storage
-        localStorage.setItem('blogs', JSON.stringify(blogs));
-
-        // Clear comment input
-        document.getElementById('comment').value = "";
-
-        // Refresh displayed comments
-        displayComments(selectedBlogIndex);
+function addComment() {
+    var commentInput = document.getElementById('comment').value.trim();
+    if (commentInput === "") {
+        document.getElementById('error').innerText = "You can't leave a blank comment";
+        setTimeout(function() {
+            document.getElementById('error').innerText = "";
+        }, 2000);
+        
+        return;
     }
+    document.getElementById('error').innerText = "";
+
+    // Retrieve current user's email from local storage
+    var currentUserEmail = localStorage.getItem('currentUserEmail');
+    
+    // Check if the current user is logged in
+    if (!currentUserEmail) {
+        // Redirect to login page
+        window.location.href = 'LOGIN.HTML';
+        return; // Stop execution
+    }
+
+    // Retrieve selected blog index
+    var selectedBlogIndex = localStorage.getItem('selectedBlogIndex');
+
+    // Retrieve blogs from local storage
+    var blogs = JSON.parse(localStorage.getItem('blogs'));
+
+    // Initialize comments array if not present
+    if (!blogs[selectedBlogIndex].comments) {
+        blogs[selectedBlogIndex].comments = [];
+    }
+
+    // Add comment with user's email to the selected blog
+    var commentWithEmail = currentUserEmail + ": " + commentInput;
+    blogs[selectedBlogIndex].comments.push(commentWithEmail);
+
+    // Update local storage
+    localStorage.setItem('blogs', JSON.stringify(blogs));
+
+    // Clear comment input
+    document.getElementById('comment').value = "";
+
+    // Refresh displayed comments
+    displayComments(selectedBlogIndex);
+}
 
     // Check user login status and update navigation accordingly
     window.onload = function () {
