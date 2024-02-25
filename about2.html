@@ -244,6 +244,37 @@ nav a:hover span{
             var nav = document.querySelector('nav');
             nav.classList.toggle('active');
         }
+        // Change the nav bar if signed in
+    window.onload = function() {
+        // Check if the user is logged in
+        var userIsLoggedIn = localStorage.getItem('userIsLoggedIn');
+        var adminIsLoggedIn = localStorage.getItem('adminIsLoggedIn');
+
+        // Get the nav element
+        var nav = document.querySelector('nav');
+
+        if (userIsLoggedIn || adminIsLoggedIn) {
+            // Create a new anchor element
+            var anchor = document.createElement('a');
+            
+            // Remove the "Sign In" anchor
+            var signInAnchor = document.querySelector('nav a[href="LOGIN.HTML"]');
+            if (signInAnchor) {
+                nav.removeChild(signInAnchor);
+            }
+
+            // Set the href attribute and text based on whether it is admin or user login
+            if (userIsLoggedIn) {
+            anchor.href = 'userdashboard.html';
+            anchor.innerText = 'ACCOUNT';
+                } else if (adminIsLoggedIn) {
+                    anchor.href = 'dashboard.html';
+                    anchor.innerText = 'Dashboard';
+                }
+            // Append the anchor element to the nav
+            nav.appendChild(anchor);
+        }
+    };
     </script>
 </body>
 </html>
